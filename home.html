@@ -522,8 +522,13 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
 }
 .testimonials { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 860px) { .testimonials { grid-template-columns: 1fr; } }
-.testi { background: var(--ink); color: var(--warm-white); border-radius: var(--r-card); padding: 24px; display: grid; gap: 18px; align-content: space-between; min-width: 0; }
+.testi { background: var(--ink); color: var(--warm-white); border-radius: var(--r-card); padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; margin: 0; }
+.testi figcaption { margin-top: auto; padding-top: 6px; }
 .testi blockquote { margin: 0; font-size: 17px; line-height: 1.55; }
+.testi .stars, .testi-head .stars { color: #FBBC04; letter-spacing: 2px; font-size: 18px; line-height: 1; }
+.testi-head { margin-top: 56px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+.testi-head h3 { font-family: var(--f-display); font-weight: 860; font-size: clamp(28px, 3.4vw, 40px); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; }
+.testi-head p { color: var(--ink-soft); font-size: 15px; display: flex; gap: 10px; align-items: center; }
 .testi blockquote::before { content: "“"; display: block; font-family: var(--f-accent); font-size: 56px; line-height: 0.6; color: var(--orange); margin-bottom: 8px; }
 .testi figcaption { display: flex; gap: 12px; align-items: center; font-size: 14px; color: var(--muted); }
 .testi .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--purple); flex: none; object-fit: cover; display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; color: var(--warm-white); font-size: 18px; }
@@ -1137,12 +1142,21 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
     link: {
       "brief-formazione": "/brief-formazione",   // pagina GHL del brief: crea in GHL una pagina con questo percorso
       "catalogo-corsi": "", "login-area-membri": "", "media-kit": "",
+      recensioni: "https://share.google/YCgoPvvqOlkqbuZ77",
       youtube: "", instagram: "", tiktok: "", facebook: "", privacy: "https://www.iubenda.com/privacy-policy/35480411",
       cookie: "https://www.iubenda.com/privacy-policy/35480411/cookie-policy"
     },
     // Testimonianze reali (con consenso scritto). Esempio:
     // { testo: "Due o tre frasi...", nome: "Nome Cognome", ruolo: "Ruolo · Azienda", foto: "img/testi-nome.webp" }
-    testimonianze: []
+    // Recensioni Google reali (scheda "Gianluca Giannini - GianluContent"), testo originale, novembre 2026
+    testimonianze: [
+      {"testo": "Ho seguito il corso da appena 24 ore e… che dire? Grazie davvero. In un giorno ho già la mia prima bozza e la mia prima idea concreta per vendere prodotti digitali. Non pensavo di riuscire a creare qualcosa di così chiaro, coerente e professionale in così poco tempo. Che dire: MUVT.", "nome": "Palmina D.", "ruolo": "Corsi online", "stelle": 5, "fonte": "Google"},
+      {"testo": "Ho acquistato praticamente tutti i corsi di Gianlu, devo dire che sono incredibili!!! Fa sembrare tutto semplice, il linguaggio che usa nello spiegare è comprensibile per chiunque… Consiglio a chiunque si voglia approcciare o imparare davvero ad usare l'AI di acquistare i corsi di Gianluca.", "nome": "Anna M.", "ruolo": "Corsi online", "stelle": 5, "fonte": "Google"},
+      {"testo": "Gianluca l'ho trovato per caso online su social. Ho acquistato ben 14 corsi da lui e posso dire con certezza che è stata una delle migliori decisioni che potessi prendere.", "nome": "Karolina O.", "ruolo": "14 corsi acquistati", "stelle": 5, "fonte": "Google"},
+      {"testo": "Gianluca è il numero uno, lo seguo su instagram e devo dire che mette sempre contenuti Top. Qualche giorno fa ho comprato il suo corso Claude Prompt System ed è Top anche questo.", "nome": "Andrea C.", "ruolo": "Claude Prompt System", "stelle": 5, "fonte": "Google"},
+      {"testo": "Io sono una sua fan e allieva da anni ormai 😉 ogni corso, ogni workshop, ogni tutorial sono sempre una grande scoperta, un grande piacere seguire i suoi corsi, impari tanti e ti diverti!", "nome": "Monica C.", "ruolo": "Allieva da anni", "stelle": 5, "fonte": "Google"},
+      {"testo": "Ho acquistato questi corsi con l'obiettivo di migliorare le mie competenze e devo dire che hanno superato le aspettative. I contenuti sono chiari, ben strutturati e facili da seguire anche per chi parte da un livello base.", "nome": "Vanes R.", "ruolo": "Corsi online", "stelle": 5, "fonte": "Google"}
+    ]
   };
 
   /* ---------- Link configurabili ---------- */
@@ -1152,9 +1166,13 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
     if (!box || !list.length) return;
     var e = function (t) { return String(t || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
     box.innerHTML = list.map(function (t) {
-      var face = t.foto ? '<img class="avatar" src="' + e(t.foto) + '" alt="" loading="lazy" width="48" height="48">' : '<span class="avatar" aria-hidden="true">' + e((t.nome || "?").charAt(0)) + "</span>";
-      return '<figure class="testi"><blockquote>' + e(t.testo) + "</blockquote><figcaption>" + face + "<span><b>" + e(t.nome) + "</b>" + e(t.ruolo) + "</span></figcaption></figure>";
+      var cols = ["#7433D6", "#FF7A2A", "#C4A1FF", "#5B8DEF"], col = cols[(t.nome || "").length % cols.length];
+      var face = t.foto ? '<img class="avatar" src="' + e(t.foto) + '" alt="" loading="lazy" width="48" height="48">' : '<span class="avatar" aria-hidden="true" style="background:' + col + '">' + e((t.nome || "?").charAt(0)) + "</span>";
+      var stars = t.stelle ? '<span class="stars" role="img" aria-label="' + t.stelle + ' stelle su 5">' + "★★★★★".slice(0, t.stelle) + "</span>" : "";
+      return '<figure class="testi">' + stars + "<blockquote>" + e(t.testo) + "</blockquote><figcaption>" + face + "<span><b>" + e(t.nome) + "</b>" + e(t.ruolo) + (t.fonte ? " · Recensione su " + e(t.fonte) : "") + "</span></figcaption></figure>";
     }).join("");
+    box.insertAdjacentHTML("beforebegin", '<div class="testi-head"><h3>Cosa dicono gli studenti</h3><p><span class="stars" aria-hidden="true">★★★★★</span> Recensioni reali dalla scheda Google di GianluContent</p></div>');
+    if (CONFIG.link.recensioni) box.insertAdjacentHTML("afterend", '<div class="cta-row" style="justify-content:center;margin-top:20px"><a class="btn btn--ghost" href="' + e(CONFIG.link.recensioni) + '" target="_blank" rel="noopener">Leggi tutte le recensioni su Google <span class="arrow">→</span></a></div>');
     box.hidden = false;
   })();
 
