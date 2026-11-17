@@ -526,7 +526,7 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
 .testi blockquote { margin: 0; font-size: 17px; line-height: 1.55; }
 .testi blockquote::before { content: "“"; display: block; font-family: var(--f-accent); font-size: 56px; line-height: 0.6; color: var(--orange); margin-bottom: 8px; }
 .testi figcaption { display: flex; gap: 12px; align-items: center; font-size: 14px; color: var(--muted); }
-.testi .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--purple); flex: none; }
+.testi .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--purple); flex: none; object-fit: cover; display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; color: var(--warm-white); font-size: 18px; }
 .testi figcaption b { display: block; color: var(--warm-white); font-family: var(--f-display); font-size: 16px; letter-spacing: 0.01em; }
 
 /* ---------- FAQ ---------- */
@@ -999,7 +999,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
         <span class="eyebrow">Casi studio</span>
         <h2 class="h2" id="ris-title">Risultati, <span class="accent">non promesse.</span></h2>
       </div>
-      <p class="lead">Progetti partiti da zero e diventati presenze riconoscibili. Ogni caso indica il servizio usato.</p>
+      <p class="lead">Progetti reali, con clienti e brand reali. Ogni caso indica il servizio usato.</p>
     </div>
 
     <figure class="figure svc-figure">
@@ -1007,34 +1007,31 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
     </figure>
 
     <div class="cases">
-      <article class="case case--todo">
-        <div class="meta"><span class="svc">Affiancamento</span><span>[Settore]</span></div>
-        <div class="big">0 → 10.000+<small>follower in [X] mesi</small></div>
-        <p><span class="todo">Da completare</span> Nome del cliente, punto di partenza, cosa abbiamo fatto e screenshot del profilo.</p>
-      </article>
-      <article class="case case--todo">
-        <div class="meta"><span class="svc">Affiancamento</span><span>[Settore]</span></div>
-        <div class="big">0 → 11.000<small>follower in [X] mesi</small></div>
-        <p><span class="todo">Da completare</span> Nome del cliente, risultato oltre ai follower (richieste, vendite, call) e frase del cliente.</p>
-      </article>
       <article class="case">
         <div class="meta"><span class="svc">Agenzia</span><span>AI experience marketing</span></div>
         <div class="big">Carla AI<small>Creator AI per Selfiebox</small></div>
-        <p>Abbiamo creato una creator AI per il brand: strategia, avatar, script, piano editoriale mensile e funnel Manychat per portare richieste corporate e franchising. <span class="todo">Aggiungi i risultati</span></p>
+        <p>Una creator AI costruita da zero per il brand: strategia, avatar, script, piano editoriale mensile e funnel Manychat per portare richieste corporate e franchising. Online da giugno 2026.</p>
       </article>
       <article class="case">
         <div class="meta"><span class="svc">Produzione</span><span>Fitness · App</span></div>
         <div class="big">260 video<small>AI + 3 teaser per BrainFit</small></div>
         <p>Produzione su larga scala di video AI per il portale di un'app fitness, con teaser da 12 secondi per il lancio.</p>
       </article>
+      <article class="case">
+        <div class="meta"><span class="svc">ADV</span><span>Startup e tool AI</span></div>
+        <div class="big">11 brand<small>AI che hanno scelto i miei contenuti</small></div>
+        <p>Higgsfield, CapCut, Gamma, Dreamina, Pollo.ai, Emergent, SkyWork e altri: contenuti sponsorizzati su Instagram, TikTok, YouTube e Facebook, dal brief alla pubblicazione.</p>
+      </article>
+      <article class="case">
+        <div class="meta"><span class="svc">Formazione</span><span>Personal brand</span></div>
+        <div class="big">10 sessioni<small>Formazione su misura</small></div>
+        <p>Un percorso personalizzato per una professionista che vuole usare l'AI nel suo personal brand: strumenti, contenuti e workflow costruiti sul suo lavoro.</p>
+      </article>
     </div>
 
-    <div class="testimonials">
-      <!-- TESTIMONIANZE: sostituisci con frase reale, nome, ruolo e foto (con consenso scritto del cliente) -->
-      <figure class="testi"><blockquote>[Testimonianza da inserire. Due o tre frasi sul risultato ottenuto, con un numero se possibile.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Azienda]</span></figcaption></figure>
-      <figure class="testi"><blockquote>[Testimonianza da inserire. Meglio se di un brand ADV: cosa è successo dopo la pubblicazione.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Brand]</span></figcaption></figure>
-      <figure class="testi"><blockquote>[Testimonianza da inserire. Ideale da un corso o da una formazione su misura.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Azienda]</span></figcaption></figure>
-    </div>
+    <!-- TESTIMONIANZE: si compilano in CONFIG.testimonianze (solo frasi reali, con consenso scritto).
+         Finché l'elenco è vuoto il blocco resta nascosto. -->
+    <div class="testimonials" id="testimonianze" hidden></div>
   </div>
 </section>
 
@@ -1142,10 +1139,25 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
       "catalogo-corsi": "", "login-area-membri": "", "media-kit": "",
       youtube: "", instagram: "", tiktok: "", facebook: "", privacy: "https://www.iubenda.com/privacy-policy/35480411",
       cookie: "https://www.iubenda.com/privacy-policy/35480411/cookie-policy"
-    }
+    },
+    // Testimonianze reali (con consenso scritto). Esempio:
+    // { testo: "Due o tre frasi...", nome: "Nome Cognome", ruolo: "Ruolo · Azienda", foto: "img/testi-nome.webp" }
+    testimonianze: []
   };
 
   /* ---------- Link configurabili ---------- */
+  // Testimonianze: mostrate solo se presenti in CONFIG
+  (function () {
+    var box = document.getElementById("testimonianze"), list = CONFIG.testimonianze || [];
+    if (!box || !list.length) return;
+    var e = function (t) { return String(t || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+    box.innerHTML = list.map(function (t) {
+      var face = t.foto ? '<img class="avatar" src="' + e(t.foto) + '" alt="" loading="lazy" width="48" height="48">' : '<span class="avatar" aria-hidden="true">' + e((t.nome || "?").charAt(0)) + "</span>";
+      return '<figure class="testi"><blockquote>' + e(t.testo) + "</blockquote><figcaption>" + face + "<span><b>" + e(t.nome) + "</b>" + e(t.ruolo) + "</span></figcaption></figure>";
+    }).join("");
+    box.hidden = false;
+  })();
+
   document.querySelectorAll("[data-link]").forEach(function (a) {
     var url = CONFIG.link[a.getAttribute("data-link")];
     if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
