@@ -1,0 +1,1668 @@
+<!-- Banner cookie iubenda (codice fornito da Gianluca). Se lo hai già in
+     Settings > Tracking Code del sito GHL, cancella questo blocco per non caricarlo due volte. -->
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"enableTcf":true,"googleAdditionalConsentMode":true,"perPurposeConsent":true,"siteId":2130705,"tcfPurposes":{"2":"consent_only","7":"consent_only","8":"consent_only","9":"consent_only","10":"consent_only","11":"consent_only"},"cookiePolicyId":35480411,"lang":"it","banner":{"acceptButtonCaptionColor":"#010101","acceptButtonColor":"#ffd900","acceptButtonDisplay":true,"backgroundColor":"#000001","closeButtonRejects":true,"customizeButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"position":"bottom","textColor":"#ffffff"}};
+</script>
+<script type="text/javascript" src="//cs.iubenda.com/sync/2130705.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+<meta name="description" content="GianluContent: corsi, formazione su misura, affiancamento e gestione completa dei contenuti con l'intelligenza artificiale. Servizio ADV per startup e tool AI.">
+
+<!-- =====================================================================
+     GHL · HEAD
+     Su GoHighLevel: incolla questi <link> nel "Tracking code > Header"
+     della pagina (o del sito). Il resto del CSS va in "Custom CSS".
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Roboto+Condensed:wght@400..900&family=Space+Grotesk:wght@400..700&display=swap">
+
+<!-- =====================================================================
+     GHL · CSS GLOBALE
+     ===================================================================== -->
+<style>
+/* Layout: bande a tutta larghezza alternate Ink / Warm Ivory, contenuto su griglia max 1200px.
+   Elemento firma: lo "spettro della delega" (Tu fai / Noi facciamo) che collega i 4 servizi. */
+:root {
+  /* Colori principali (Brand Identity v1.0, in test) */
+  --ink: #100B18;
+  --warm-white: #FAF7FF;
+  --purple: #7433D6;
+  --lime: #DFFF00;
+  --orange: #FF7A2A;
+  /* Supporto */
+  --night: #21152F;
+  --lavender: #C4A1FF;
+  --muted: #C5BCCE;
+  --ivory: #F2EEE7;
+  --wash: #DFD0EE;
+  /* Derivati */
+  --ink-soft: #4B3F5A;          /* testo secondario su fondi chiari */
+  --line-dark: rgba(250, 247, 255, 0.12);
+  --line-light: rgba(16, 11, 24, 0.14);
+  --glass: rgba(33, 21, 47, 0.72);
+  --purple-deep: #2C1650;
+
+  --f-display: "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-accent: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+
+  --r-ctrl: 12px;
+  --r-card: 18px;
+  --r-hero: 28px;
+  --gutter: clamp(16px, 4vw, 40px);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--warm-white);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 60; background: var(--ink);
+}
+
+img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
+
+.wrap {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(72px, 10vw, 128px); position: relative; }
+.band--ink { background: var(--ink); color: var(--warm-white); }
+.band--night { background: var(--night); color: var(--warm-white); }
+.band--ivory { background: var(--ivory); color: var(--ink); }
+.band--wash { background: var(--wash); color: var(--ink); }
+
+/* ---------- Tipografia ---------- */
+.eyebrow {
+  font-family: var(--f-display); font-weight: 700; font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.band--ink .eyebrow, .band--night .eyebrow { color: var(--muted); }
+.band--ivory .eyebrow, .band--wash .eyebrow { color: var(--ink-soft); }
+
+.h1 {
+  font-size: clamp(56px, 9.2vw, 124px); font-weight: 880; line-height: 0.92;
+  letter-spacing: -0.04em; text-transform: uppercase;
+}
+.h2 {
+  font-size: clamp(40px, 5.6vw, 66px); font-weight: 820; line-height: 0.98;
+  letter-spacing: -0.03em; text-transform: uppercase;
+}
+.h3 { font-size: clamp(26px, 2.8vw, 36px); font-weight: 780; line-height: 1.02; letter-spacing: -0.015em; }
+.lead { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.45; font-weight: 450; max-width: 40ch; }
+.band--ink .lead, .band--night .lead { color: var(--muted); }
+.band--ivory .lead, .band--wash .lead { color: var(--ink-soft); }
+.accent {
+  font-family: var(--f-accent); font-style: italic; font-weight: 500;
+  text-transform: none; letter-spacing: -0.01em;
+}
+.band--ink .accent, .band--night .accent { color: var(--lavender); }
+.band--ivory .accent, .band--wash .accent { color: var(--purple); }
+.muted { color: var(--muted); }
+.small { font-size: 14px; line-height: 1.45; }
+
+/* ---------- Pulsanti ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: var(--r-ctrl);
+  font-family: var(--f-display); font-weight: 760; font-size: 17px; letter-spacing: 0.01em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--lime { background: var(--lime); color: var(--ink); }
+.btn--lime:hover { background: #ECFF5C; }
+.btn--ghost { background: transparent; color: inherit; border-color: currentColor; }
+.btn--ghost:hover { background: rgba(196, 161, 255, 0.12); }
+.btn--ink { background: var(--ink); color: var(--warm-white); }
+.btn--ink:hover { background: var(--purple-deep); }
+.btn .arrow { font-family: var(--f-body); font-weight: 600; }
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--lime); outline-offset: 2px; box-shadow: 0 0 0 6px var(--ink);
+}
+@media (prefers-reduced-motion: reduce) { .btn, .btn:hover { transition: none; transform: none; } }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: var(--glass); border-bottom: 1px solid var(--line-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; }
+.logo {
+  font-family: var(--f-display); font-weight: 800; font-size: 26px; letter-spacing: -0.03em;
+  text-decoration: none; color: var(--warm-white); white-space: nowrap; line-height: 1;
+}
+.logo .co { color: var(--orange); }
+.logo .ast { display: inline-block; width: 0.6em; height: 0.6em; margin-left: 0.07em; vertical-align: 0.62em; color: var(--lime); line-height: 0; }
+.logo .ast svg { width: 100%; height: 100%; display: block; overflow: visible; transition: transform .7s cubic-bezier(.2, .8, .2, 1); }
+.logo .ast path { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; }
+.logo:hover .ast svg, .logo:focus-visible .ast svg { transform: rotate(360deg); }
+@media (prefers-reduced-motion: reduce) { .logo .ast svg { transition: none; } .logo:hover .ast svg { transform: none; } }
+.nav { display: flex; gap: 26px; align-items: center; }
+.nav a {
+  font-family: var(--f-display); font-weight: 650; font-size: 15px; letter-spacing: 0.02em;
+  text-transform: uppercase; text-decoration: none; color: var(--muted);
+}
+.nav a:hover { color: var(--warm-white); }
+.header-cta { min-height: 44px; padding: 0 18px; font-size: 15px; }
+.menu-toggle {
+  display: none; background: none; border: 1px solid var(--line-dark); color: var(--warm-white);
+  border-radius: var(--r-ctrl); height: 44px; padding: 0 14px; font-family: var(--f-display);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer;
+}
+@media (max-width: 960px) {
+  .nav { display: none; }
+  .menu-toggle { display: inline-flex; align-items: center; }
+  .site-header.open .nav {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: var(--night); border-bottom: 1px solid var(--line-dark);
+    padding: 12px max(var(--gutter), env(safe-area-inset-right, 0px)) 20px max(var(--gutter), env(safe-area-inset-left, 0px));
+  }
+  .site-header.open .nav a { padding: 10px 0; font-size: 18px; color: var(--warm-white); }
+}
+@media (max-width: 520px) { .header-cta { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(48px, 7vw, 96px) clamp(64px, 8vw, 104px); overflow: hidden; }
+.hero::after {
+  content: ""; position: absolute; width: 720px; height: 720px; right: -220px; top: -160px;
+  background: radial-gradient(circle, rgba(116, 51, 214, 0.38), rgba(116, 51, 214, 0) 65%);
+  pointer-events: none;
+}
+.hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: clamp(32px, 5vw, 72px); align-items: stretch; position: relative; z-index: 1; }
+.hero-copy { display: grid; gap: 28px; min-width: 0; }
+.hero .h1 .accent { display: inline-block; font-size: 0.92em; }
+.hero-note { font-size: 14px; color: var(--muted); }
+.proof-strip {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;
+  border-top: 1px solid var(--line-dark); margin-top: clamp(40px, 6vw, 72px); position: relative; z-index: 1;
+}
+.proof { padding: 22px 20px 0 0; display: grid; gap: 4px; }
+.proof + .proof { padding-left: 20px; border-left: 1px solid var(--line-dark); }
+.proof b {
+  font-family: var(--f-display); font-weight: 850; font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1; letter-spacing: -0.03em; color: var(--lime); font-variant-numeric: tabular-nums;
+}
+.proof span { color: var(--muted); font-size: 15px; line-height: 1.4; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { max-width: 460px; width: 100%; }
+  .hero-photo .photo { aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+}
+@media (max-width: 560px) {
+  .proof-strip { grid-template-columns: 1fr; }
+  .proof { padding: 18px 0; }
+  .proof + .proof { padding-left: 0; border-left: 0; border-top: 1px solid var(--line-dark); }
+}
+
+/* ---------- Segnaposto foto ---------- */
+.photo {
+  position: relative; border-radius: var(--r-hero); overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%;
+  background:
+    radial-gradient(120% 80% at 70% 15%, rgba(255, 122, 42, 0.30), rgba(255, 122, 42, 0) 55%),
+    radial-gradient(90% 70% at 20% 90%, rgba(116, 51, 214, 0.65), rgba(116, 51, 214, 0) 70%),
+    var(--night);
+  border: 1px solid var(--line-dark);
+  display: flex; flex-direction: column; justify-content: space-between; padding: 22px;
+}
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo .glasses { width: 88px; height: auto; align-self: center; margin-top: 30%; opacity: 0.95; }
+.photo-label {
+  position: relative; font-size: 13px; line-height: 1.45; color: var(--muted);
+  border: 1px dashed rgba(197, 188, 206, 0.45); border-radius: var(--r-ctrl); padding: 10px 12px;
+  background: rgba(16, 11, 24, 0.55);
+}
+.photo-label b { color: var(--warm-white); font-family: var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; display: block; }
+.glass-chip {
+  position: absolute; left: -18px; bottom: 26%; z-index: 2;
+  background: var(--glass); border: 1px solid var(--line-dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
+  border-radius: var(--r-ctrl); padding: 10px 14px; display: grid; gap: 2px; font-size: 13px;
+}
+.glass-chip small { font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-size: 11px; }
+.glass-chip strong { font-family: var(--f-display); font-size: 17px; }
+.glass-chip .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); margin-right: 6px; }
+.hero-photo { position: relative; display: flex; min-width: 0; }
+.hero-photo .photo { flex: 1; aspect-ratio: auto; min-height: 460px; height: 100%; }
+.hero-photo .photo img { object-position: 50% 30%; }
+@media (max-width: 560px) { .glass-chip { left: 12px; } }
+
+/* ---------- Immagini ---------- */
+.photo--img { padding: 0; display: block; }
+.photo--img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.figure { margin: 0; display: grid; gap: 10px; }
+.figure .frame { position: relative; border-radius: var(--r-hero); overflow: hidden; aspect-ratio: 16 / 7; max-width: 100%; background: var(--night); }
+.figure .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.figure .frame--32 { aspect-ratio: 3 / 2; border-radius: var(--r-card); }
+.figure figcaption { font-size: 14px; line-height: 1.45; }
+.figure-inline { position: relative; overflow: hidden; border-radius: var(--r-ctrl); aspect-ratio: 3 / 2; max-width: 100%; background: var(--night); }
+.figure-inline img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.band--ink .figure figcaption, .band--night .figure figcaption { color: var(--muted); }
+.band--ivory .figure figcaption, .band--wash .figure figcaption { color: var(--ink-soft); }
+.svc-figure { margin-bottom: clamp(32px, 4vw, 48px); }
+@media (max-width: 640px) { .figure .frame { aspect-ratio: 4 / 3; } }
+.final-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.final-grid > * { min-width: 0; }
+.final-copy { display: grid; gap: 28px; }
+.final .photo { aspect-ratio: 3 / 4; }
+@media (max-width: 860px) { .final-grid { grid-template-columns: 1fr; } .final .photo { max-width: 360px; } }
+
+
+/* ---------- Brand in scorrimento (LogoLoop, da React Bits) ---------- */
+.logo-loop { display: grid; gap: 14px; overflow: hidden; max-width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.loop-row { display: flex; width: max-content; animation: loop-x 38s linear infinite; }
+.loop-row--reverse { animation-direction: reverse; animation-duration: 32s; }
+.logo-loop:hover .loop-row { animation-play-state: paused; }
+.loop-track { list-style: none; margin: 0; padding: 0; display: flex; flex: none; }
+.loop-track li {
+  font-family: var(--f-display); font-weight: 820; font-size: clamp(30px, 4.4vw, 58px); letter-spacing: -0.03em; line-height: 1;
+  color: var(--muted); padding: 18px clamp(22px, 3vw, 44px); white-space: nowrap; display: flex; align-items: center; gap: clamp(22px, 3vw, 44px); transition: color .2s ease;
+}
+.loop-track li::after {
+  content: ""; width: 0.36em; height: 0.36em; flex: none; background: var(--lime);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 24 24'%3E%3Cpath d='M9.44 -2.62 9.77 -2.98 9.91 -3.18 10.13 -3.62 10.26 -4.09 10.29 -4.58 10.22 -5.07 10.07 -5.53 9.82 -5.96 9.67 -6.15 9.31 -6.48 8.90 -6.74 8.44 -6.91 8.20 -6.97 7.71 -7.00 7.46 -6.98 6.99 -6.87 6.54 -6.66 2.50 -4.33 2.49 -9.25 2.45 -9.49 2.31 -9.96 2.08 -10.39 1.77 -10.77 1.39 -11.08 .96 -11.31 .49 -11.45 .25 -11.49 -.25 -11.49 -.49 -11.45 -.96 -11.31 -1.39 -11.08 -1.77 -10.77 -1.93 -10.59 -2.20 -10.18 -2.31 -9.96 -2.45 -9.49 -2.49 -9.25 -2.50 -4.33 -.38 -3.08 .19 -2.58 .64 -1.98 .97 -1.30 1.08 -.94 1.20 -.19 1.20 .19 1.08 .94 .82 1.65 .43 2.29 -.09 2.85 -.38 3.08 -2.50 4.33 -2.49 9.25 -2.39 9.73 -2.20 10.18 -1.93 10.59 -1.59 10.93 -1.18 11.20 -.96 11.31 -.49 11.45 .00 11.50 .49 11.45 .96 11.31 1.39 11.08 1.77 10.77 2.08 10.39 2.31 9.96 2.45 9.49 2.49 9.25 2.50 4.33 6.54 6.66 6.76 6.78 7.22 6.93 7.71 7.00 7.95 6.99 8.44 6.91 8.67 6.84 9.11 6.62 9.31 6.48 9.67 6.15 9.95 5.75 10.16 5.30 10.22 5.07 10.29 4.58 10.26 4.09 10.13 3.62 9.91 3.18 9.77 2.98 9.44 2.62 9.04 2.34 5.00 0 9.04 -2.34ZM-7.60 .00 -11.85 2.47 -12.22 2.79 -12.51 3.18 -12.73 3.62 -12.86 4.09 -12.89 4.58 -12.82 5.07 -12.67 5.53 -12.42 5.96 -12.10 6.33 -11.71 6.62 -11.27 6.84 -11.04 6.91 -10.55 6.99 -10.31 7.00 -9.82 6.93 -9.36 6.78 -9.14 6.66 -1.14 2.03 -.77 1.70 -.61 1.51 -.35 1.08 -.18 .62 -.10 .12 -.13 -.37 -.18 -.62 -.25 -.85 -.47 -1.30 -.61 -1.51 -.95 -1.87 -1.35 -2.16 -9.36 -6.78 -9.82 -6.93 -10.31 -7.00 -10.55 -6.99 -11.04 -6.91 -11.27 -6.84 -11.71 -6.62 -12.10 -6.33 -12.42 -5.96 -12.67 -5.53 -12.82 -5.07 -12.89 -4.58 -12.86 -4.09 -12.73 -3.62 -12.51 -3.18 -12.22 -2.79 -11.85 -2.47Z' fill='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 24 24'%3E%3Cpath d='M9.44 -2.62 9.77 -2.98 9.91 -3.18 10.13 -3.62 10.26 -4.09 10.29 -4.58 10.22 -5.07 10.07 -5.53 9.82 -5.96 9.67 -6.15 9.31 -6.48 8.90 -6.74 8.44 -6.91 8.20 -6.97 7.71 -7.00 7.46 -6.98 6.99 -6.87 6.54 -6.66 2.50 -4.33 2.49 -9.25 2.45 -9.49 2.31 -9.96 2.08 -10.39 1.77 -10.77 1.39 -11.08 .96 -11.31 .49 -11.45 .25 -11.49 -.25 -11.49 -.49 -11.45 -.96 -11.31 -1.39 -11.08 -1.77 -10.77 -1.93 -10.59 -2.20 -10.18 -2.31 -9.96 -2.45 -9.49 -2.49 -9.25 -2.50 -4.33 -.38 -3.08 .19 -2.58 .64 -1.98 .97 -1.30 1.08 -.94 1.20 -.19 1.20 .19 1.08 .94 .82 1.65 .43 2.29 -.09 2.85 -.38 3.08 -2.50 4.33 -2.49 9.25 -2.39 9.73 -2.20 10.18 -1.93 10.59 -1.59 10.93 -1.18 11.20 -.96 11.31 -.49 11.45 .00 11.50 .49 11.45 .96 11.31 1.39 11.08 1.77 10.77 2.08 10.39 2.31 9.96 2.45 9.49 2.49 9.25 2.50 4.33 6.54 6.66 6.76 6.78 7.22 6.93 7.71 7.00 7.95 6.99 8.44 6.91 8.67 6.84 9.11 6.62 9.31 6.48 9.67 6.15 9.95 5.75 10.16 5.30 10.22 5.07 10.29 4.58 10.26 4.09 10.13 3.62 9.91 3.18 9.77 2.98 9.44 2.62 9.04 2.34 5.00 0 9.04 -2.34ZM-7.60 .00 -11.85 2.47 -12.22 2.79 -12.51 3.18 -12.73 3.62 -12.86 4.09 -12.89 4.58 -12.82 5.07 -12.67 5.53 -12.42 5.96 -12.10 6.33 -11.71 6.62 -11.27 6.84 -11.04 6.91 -10.55 6.99 -10.31 7.00 -9.82 6.93 -9.36 6.78 -9.14 6.66 -1.14 2.03 -.77 1.70 -.61 1.51 -.35 1.08 -.18 .62 -.10 .12 -.13 -.37 -.18 -.62 -.25 -.85 -.47 -1.30 -.61 -1.51 -.95 -1.87 -1.35 -2.16 -9.36 -6.78 -9.82 -6.93 -10.31 -7.00 -10.55 -6.99 -11.04 -6.91 -11.27 -6.84 -11.71 -6.62 -12.10 -6.33 -12.42 -5.96 -12.67 -5.53 -12.82 -5.07 -12.89 -4.58 -12.86 -4.09 -12.73 -3.62 -12.51 -3.18 -12.22 -2.79 -11.85 -2.47Z' fill='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.loop-track li:hover { color: var(--warm-white); }
+@keyframes loop-x { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .loop-row { animation: none; width: auto; flex-wrap: wrap; }
+  .loop-track[aria-hidden="true"] { display: none; }
+  .loop-track { flex-wrap: wrap; flex: 1 1 auto; min-width: 0; }
+  .loop-track li { font-size: clamp(24px, 6vw, 40px); padding: 10px 16px; }
+  .logo-loop { -webkit-mask-image: none; mask-image: none; }
+}
+.brands-cta { margin-top: clamp(28px, 4vw, 44px); display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--line-dark); }
+.brands-cta p { color: var(--muted); font-size: 18px; }
+
+/* ---------- Movimento (GSAP) ---------- */
+.line-mask { overflow: clip; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.figure .frame img, .photo--img img, .sp-media img { will-change: transform; }
+.js-motion .hero .h1, .js-motion .hero .lead, .js-motion .hero .cta-row, .js-motion .hero .hero-note, .js-motion .hero .eyebrow { visibility: hidden; }
+[data-magnet] { will-change: transform; }
+
+/* ---------- Spettro della delega ---------- */
+.spectrum-head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; margin-bottom: 48px; }
+.spectrum-head > * { min-width: 0; }
+@media (max-width: 860px) { .spectrum-head { grid-template-columns: 1fr; } }
+.spectrum {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+  border: 1px solid var(--line-light); border-radius: var(--r-card); overflow: hidden; background: #FFFDF8;
+}
+.stop {
+  appearance: none; border: 0; background: transparent; text-align: left; cursor: pointer; color: var(--ink);
+  padding: 22px 20px 20px; display: grid; gap: 8px; align-content: start; font: inherit;
+  border-right: 1px solid var(--line-light); position: relative; transition: background .2s ease;
+}
+.stop:last-child { border-right: 0; }
+.stop:hover { background: rgba(116, 51, 214, 0.06); }
+.stop .step { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.stop .name { font-family: var(--f-display); font-weight: 820; font-size: clamp(22px, 2.2vw, 28px); line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; }
+.stop .line { font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+.stop[aria-pressed="true"] { background: var(--ink); color: var(--warm-white); }
+.stop[aria-pressed="true"] .step, .stop[aria-pressed="true"] .line { color: var(--muted); }
+.stop[aria-pressed="true"]::after { content: ""; position: absolute; left: 20px; right: 20px; bottom: 0; height: 4px; background: var(--lime); border-radius: 4px 4px 0 0; }
+@media (max-width: 760px) {
+  .spectrum { grid-template-columns: 1fr 1fr; }
+  .stop:nth-child(2) { border-right: 0; }
+  .stop:nth-child(-n+2) { border-bottom: 1px solid var(--line-light); }
+}
+.spectrum-panel {
+  margin-top: 20px; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(24px, 4vw, 48px);
+  align-items: center; background: var(--wash); border-radius: var(--r-card); padding: clamp(16px, 2.4vw, 28px);
+}
+.sp-media { position: relative; border-radius: var(--r-ctrl); overflow: hidden; aspect-ratio: 3 / 2; max-width: 100%; background: var(--night); }
+.sp-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sp-body { display: grid; gap: 24px; }
+.spectrum-panel > * { min-width: 0; }
+@media (max-width: 760px) { .spectrum-panel { grid-template-columns: 1fr; } }
+.split { display: grid; gap: 10px; }
+.split-bar { display: flex; height: 44px; border-radius: var(--r-ctrl); overflow: hidden; background: #fff; }
+.split-bar .you { background: var(--lavender); transition: flex-basis .45s ease; }
+.split-bar .us { background: var(--purple); transition: flex-basis .45s ease; }
+@media (prefers-reduced-motion: reduce) { .split-bar .you, .split-bar .us { transition: none; } }
+.split-legend { display: flex; justify-content: space-between; font-family: var(--f-display); font-weight: 750; font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.split-legend .k { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: 0; }
+.panel-copy { display: grid; gap: 14px; }
+.panel-copy p { color: var(--ink-soft); }
+.adv-callout {
+  margin-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;
+  border: 1px solid var(--line-light); border-radius: var(--r-card); padding: 18px 22px;
+}
+.adv-callout p { font-weight: 500; }
+.adv-callout a { font-family: var(--f-display); font-weight: 760; text-transform: uppercase; letter-spacing: 0.02em; color: var(--purple); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* ---------- Intestazioni sezione servizio ---------- */
+.svc-head { display: grid; grid-template-columns: auto 1fr; gap: 12px 28px; align-items: start; margin-bottom: clamp(36px, 5vw, 56px); }
+.svc-head > * { min-width: 0; }
+.svc-tag {
+  grid-row: span 3; font-family: var(--f-display); font-weight: 850; font-size: clamp(64px, 9vw, 120px);
+  line-height: 0.8; letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1.5px var(--lavender); opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+.band--ivory .svc-tag, .band--wash .svc-tag { -webkit-text-stroke-color: var(--purple); }
+@media (max-width: 640px) { .svc-head { grid-template-columns: 1fr; } .svc-tag { grid-row: auto; font-size: 64px; } }
+
+/* ---------- Formazione ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.two-col > * { min-width: 0; }
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+.panel {
+  border-radius: var(--r-card); padding: clamp(22px, 3vw, 34px); display: grid; gap: 18px; align-content: start;
+}
+.panel--white { background: #FFFDF8; border: 1px solid var(--line-light); }
+.panel--ink { background: var(--ink); color: var(--warm-white); }
+.panel--ink .muted, .panel--ink p { color: var(--muted); }
+.panel .kicker { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.panel--white .kicker { color: var(--purple); }
+.panel--ink .kicker { color: var(--lime); }
+.courses { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.courses li {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline;
+  padding: 14px 0; border-top: 1px solid var(--line-light);
+}
+.courses li:last-child { border-bottom: 1px solid var(--line-light); }
+.courses strong { font-family: var(--f-display); font-weight: 780; font-size: 20px; letter-spacing: -0.01em; }
+.courses span { grid-column: 1 / -1; color: var(--ink-soft); font-size: 15px; line-height: 1.45; }
+.courses em { font-style: normal; font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.checks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; line-height: 1.5; }
+.checks li::before {
+  content: ""; width: 18px; height: 18px; margin-top: 3px; border-radius: 6px;
+  background: var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23100B18' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+.panel--ink .checks li { color: var(--warm-white); }
+.quote-mini { border-left: 3px solid var(--orange); padding-left: 14px; font-size: 15px; }
+
+/* ---------- Affiancamento ---------- */
+.deliver { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.deliver > div {
+  background: var(--night); border: 1px solid var(--line-dark); border-radius: var(--r-card);
+  padding: 22px; display: grid; gap: 8px; align-content: start;
+}
+.deliver b { font-family: var(--f-display); font-weight: 860; font-size: clamp(40px, 4.4vw, 56px); line-height: 0.95; letter-spacing: -0.03em; color: var(--lime); font-variant-numeric: tabular-nums; }
+.deliver b.word { font-size: clamp(26px, 2.6vw, 32px); color: var(--warm-white); line-height: 1.02; }
+.deliver span { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.deliver .maybe { font-family: var(--f-display); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+@media (max-width: 960px) { .deliver { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .deliver { grid-template-columns: 1fr; } }
+.flow { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: f; }
+.flow li { padding: 20px 20px 0 0; border-top: 2px solid var(--purple); display: grid; gap: 6px; counter-increment: f; }
+.flow li::before { content: "Fase " counter(f); font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); }
+.flow strong { font-family: var(--f-display); font-size: 21px; font-weight: 780; line-height: 1.1; }
+.flow span { color: var(--muted); font-size: 15px; line-height: 1.45; }
+@media (max-width: 860px) { .flow { grid-template-columns: 1fr 1fr; row-gap: 24px; } }
+@media (max-width: 480px) { .flow { grid-template-columns: 1fr; } }
+.section-cta {
+  margin-top: clamp(40px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center;
+  justify-content: space-between; padding-top: 28px; border-top: 1px solid var(--line-dark);
+}
+.band--ivory .section-cta, .band--wash .section-cta { border-top-color: var(--line-light); }
+.section-cta p { max-width: 52ch; }
+.band--ink .section-cta p, .band--night .section-cta p { color: var(--muted); }
+
+/* ---------- Agenzia ---------- */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.plan {
+  background: #FFFDF8; border: 1px solid var(--line-light); border-radius: var(--r-card);
+  padding: 26px; display: grid; gap: 10px; align-content: start; position: relative;
+}
+.plan b { font-family: var(--f-display); font-weight: 880; font-size: clamp(72px, 8vw, 104px); line-height: 0.82; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.plan .unit { font-family: var(--f-display); font-weight: 750; font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+.plan h3 { font-size: 24px; font-weight: 780; text-transform: uppercase; letter-spacing: -0.01em; margin-top: 8px; }
+.plan p { color: var(--ink-soft); font-size: 15px; line-height: 1.5; }
+.plan--focus { background: var(--ink); color: var(--warm-white); border-color: var(--ink); }
+.plan--focus .unit, .plan--focus p { color: var(--muted); }
+.plan--focus b { color: var(--lime); }
+.plan .badge {
+  position: absolute; top: 18px; right: 18px; font-family: var(--f-display); font-weight: 750; font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); background: var(--lavender);
+  padding: 5px 9px; border-radius: 999px;
+}
+@media (max-width: 860px) { .plans { grid-template-columns: 1fr; } .plan { grid-template-columns: auto 1fr; column-gap: 20px; } .plan b { grid-row: span 3; } }
+@media (max-width: 420px) { .plan { grid-template-columns: 1fr; } .plan b { grid-row: auto; } }
+.included { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.included > * { min-width: 0; }
+@media (max-width: 860px) { .included { grid-template-columns: 1fr; } }
+.outcomes { display: flex; flex-wrap: wrap; gap: 10px; }
+.outcomes span {
+  font-family: var(--f-display); font-weight: 780; font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 10px 14px; border-radius: 999px; background: var(--purple); color: var(--warm-white);
+}
+
+/* ---------- ADV ---------- */
+.adv-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.adv-grid > * { min-width: 0; }
+@media (max-width: 900px) { .adv-grid { grid-template-columns: 1fr; } }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li {
+  counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 4px 16px; padding: 18px 0;
+  border-top: 1px solid var(--line-dark);
+}
+.steps li:last-child { border-bottom: 1px solid var(--line-dark); }
+.steps li::before {
+  content: counter(s, decimal-leading-zero); grid-row: span 2; font-family: var(--f-display); font-weight: 850;
+  font-size: 34px; line-height: 1; color: var(--lime); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+}
+.steps strong { font-family: var(--f-display); font-weight: 780; font-size: 21px; line-height: 1.1; }
+.steps span { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.channels { display: flex; flex-wrap: wrap; gap: 8px; }
+.channels span {
+  border: 1px solid var(--line-dark); border-radius: 999px; padding: 8px 14px; font-size: 14px;
+  font-family: var(--f-display); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warm-white);
+}
+.adv-side { display: grid; gap: 22px; }
+.adv-example { background: var(--night); border: 1px solid var(--line-dark); border-radius: var(--r-card); padding: 22px; display: grid; gap: 8px; }
+.adv-example .kicker { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
+.adv-example p { color: var(--muted); font-size: 15px; }
+.adv-example strong { font-family: var(--f-display); font-size: 22px; font-weight: 780; }
+
+/* ---------- Chi sono ---------- */
+.about { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.about > * { min-width: 0; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } .about .photo { max-width: 420px; } }
+.about-copy { display: grid; gap: 20px; }
+.about-copy p { color: var(--ink-soft); max-width: 60ch; }
+.about-copy p.first { color: var(--ink); font-size: clamp(19px, 1.8vw, 22px); line-height: 1.45; font-weight: 500; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 8px; border-top: 1px solid var(--line-light); }
+.facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line-light); display: grid; gap: 2px; }
+.facts div:nth-child(odd) { border-right: 1px solid var(--line-light); }
+.facts div:nth-child(even) { padding-left: 16px; }
+.facts b { font-family: var(--f-display); font-weight: 850; font-size: 32px; line-height: 1; letter-spacing: -0.03em; color: var(--purple); font-variant-numeric: tabular-nums; }
+.facts span { font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
+.signature { font-family: var(--f-accent); font-style: italic; font-size: clamp(24px, 2.6vw, 32px); color: var(--purple); }
+.about .photo { background: radial-gradient(120% 80% at 70% 15%, rgba(255, 122, 42, 0.30), rgba(255,122,42,0) 55%), radial-gradient(90% 70% at 20% 90%, rgba(116, 51, 214, 0.65), rgba(116,51,214,0) 70%), var(--night); }
+
+/* ---------- Risultati ---------- */
+.cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
+.case {
+  border-radius: var(--r-card); padding: clamp(22px, 3vw, 32px); display: grid; gap: 14px; align-content: start;
+  background: #FFFDF8; border: 1px solid var(--line-light); min-width: 0;
+}
+.case .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.case .meta span { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--line-light); border-radius: 999px; padding: 5px 10px; }
+.case .meta span.svc { background: var(--ink); color: var(--warm-white); border-color: var(--ink); }
+.case .big { font-family: var(--f-display); font-weight: 880; font-size: clamp(48px, 6vw, 76px); line-height: 0.88; letter-spacing: -0.045em; font-variant-numeric: tabular-nums; }
+.case .big small { display: block; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 10px; line-height: 1.3; }
+.case p { color: var(--ink-soft); }
+.case--todo { background: transparent; border: 2px dashed rgba(116, 51, 214, 0.45); }
+.case--todo .big { color: var(--purple); }
+.todo {
+  display: inline-block; font-family: var(--f-body); font-size: 13px; font-weight: 600; line-height: 1.4;
+  color: var(--ink); background: var(--lavender); border-radius: 6px; padding: 2px 8px;
+}
+.testimonials { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .testimonials { grid-template-columns: 1fr; } }
+.testi { background: var(--ink); color: var(--warm-white); border-radius: var(--r-card); padding: 24px; display: grid; gap: 18px; align-content: space-between; min-width: 0; }
+.testi blockquote { margin: 0; font-size: 17px; line-height: 1.55; }
+.testi blockquote::before { content: "“"; display: block; font-family: var(--f-accent); font-size: 56px; line-height: 0.6; color: var(--orange); margin-bottom: 8px; }
+.testi figcaption { display: flex; gap: 12px; align-items: center; font-size: 14px; color: var(--muted); }
+.testi .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--purple); flex: none; }
+.testi figcaption b { display: block; color: var(--warm-white); font-family: var(--f-display); font-size: 16px; letter-spacing: 0.01em; }
+
+/* ---------- FAQ ---------- */
+.faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 5vw, 64px); }
+.faq-grid > * { min-width: 0; }
+@media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; } }
+details { border-top: 1px solid var(--line-dark); }
+details:last-child { border-bottom: 1px solid var(--line-dark); }
+summary {
+  list-style: none; cursor: pointer; padding: 20px 40px 20px 0; position: relative;
+  font-family: var(--f-display); font-weight: 760; font-size: clamp(19px, 1.8vw, 23px); line-height: 1.2;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-family: var(--f-body); font-size: 28px; font-weight: 400; color: var(--lime); }
+details[open] summary::after { content: "–"; }
+details p { padding: 0 0 22px; color: var(--muted); max-width: 62ch; }
+
+/* ---------- CTA finale e footer ---------- */
+.final { text-align: left; overflow: hidden; }
+.final::after {
+  content: ""; position: absolute; width: 900px; height: 900px; left: -300px; bottom: -560px;
+  background: radial-gradient(circle, rgba(116, 51, 214, 0.45), rgba(116, 51, 214, 0) 65%); pointer-events: none;
+}
+.final .wrap { position: relative; z-index: 1; }
+.final .h1 { font-size: clamp(52px, 8.6vw, 116px); }
+.site-footer { background: var(--ink); color: var(--muted); border-top: 1px solid var(--line-dark); padding-block: 40px 32px; font-size: 14px; }
+.foot { display: grid; grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr)); gap: 28px; }
+.foot > * { min-width: 0; }
+.foot h4 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); margin-bottom: 10px; font-weight: 700; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.foot a { text-decoration: none; }
+.foot a:hover { color: var(--warm-white); text-decoration: underline; }
+.legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line-dark); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+@media (max-width: 760px) { .foot { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Survey (dialog) ---------- */
+.survey {
+  width: min(640px, calc(100vw - 24px)); max-height: min(760px, calc(100dvh - 24px)); padding: 0; border: 1px solid var(--line-dark);
+  border-radius: var(--r-hero); background: var(--night); color: var(--warm-white); overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.10);
+}
+.survey::backdrop { background: rgba(16, 11, 24, 0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.survey-inner { display: flex; flex-direction: column; max-height: min(760px, calc(100dvh - 24px)); }
+.survey-top { padding: 20px 22px 0; display: grid; gap: 14px; }
+.survey-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.survey-kicker { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); }
+.survey-close { background: none; border: 1px solid var(--line-dark); color: var(--warm-white); border-radius: 10px; width: 40px; height: 40px; font-size: 20px; cursor: pointer; flex: none; }
+.progress { height: 6px; background: rgba(250,247,255,0.10); border-radius: 6px; overflow: hidden; }
+.progress i { display: block; height: 100%; width: 0; background: var(--lime); border-radius: 6px; transition: width .3s ease; }
+.survey-body { padding: 22px; overflow-y: auto; display: grid; gap: 18px; align-content: start; }
+.survey-body h3 { font-size: clamp(26px, 4vw, 32px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.survey-body .hint { color: var(--muted); font-size: 15px; }
+.opts { display: grid; gap: 10px; }
+.opt {
+  display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: center; cursor: pointer;
+  border: 1px solid var(--line-dark); border-radius: var(--r-ctrl); padding: 14px 16px; background: rgba(16, 11, 24, 0.45);
+  transition: border-color .15s ease, background .15s ease;
+}
+.opt:hover { border-color: var(--lavender); }
+.opt input { appearance: none; width: 20px; height: 20px; margin: 0; border: 2px solid var(--muted); border-radius: 50%; display: grid; place-items: center; }
+.opt input[type="checkbox"] { border-radius: 6px; }
+.opt input:checked { border-color: var(--lime); background: var(--lime); }
+.opt input:checked::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+.opt input[type="checkbox"]:checked::after { width: 10px; height: 6px; border-radius: 0; background: none; border-left: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); transform: rotate(-45deg) translate(1px, -1px); }
+.opt:has(input:checked) { border-color: var(--lime); background: rgba(223, 255, 0, 0.06); }
+.opt span { line-height: 1.4; }
+.opt small { display: block; color: var(--muted); font-size: 13px; }
+.field { display: grid; gap: 6px; }
+.field label { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea {
+  font: inherit; color: var(--warm-white); background: rgba(16, 11, 24, 0.55); border: 1px solid var(--line-dark);
+  border-radius: var(--r-ctrl); padding: 13px 14px; min-height: 50px; width: 100%;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.fields-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .fields-2 { grid-template-columns: 1fr; } }
+.consent { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.45; align-items: start; cursor: pointer; }
+.consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--lime); }
+.err { color: #FFB38A; font-size: 14px; min-height: 1em; }
+.survey-foot { padding: 16px 22px 20px; display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line-dark); }
+.survey-foot .btn { min-height: 48px; }
+.result { display: grid; gap: 16px; }
+.result .rec { background: var(--ink); border: 1px solid var(--line-dark); border-radius: var(--r-card); padding: 20px; display: grid; gap: 8px; }
+.result .rec small { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); }
+.result .rec strong { font-family: var(--f-display); font-size: 30px; font-weight: 840; line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
+.result .rec p { color: var(--muted); font-size: 15px; }
+.result pre { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); background: rgba(16,11,24,.6); border: 1px dashed var(--line-dark); border-radius: var(--r-ctrl); padding: 12px; overflow-x: auto; max-height: 180px; }
+.result summary { font-size: 14px; padding: 8px 0; font-family: var(--f-body); font-weight: 500; color: var(--muted); }
+.result summary::after { top: 2px; font-size: 20px; }
+
+/* GHL: il sito esce dal contenitore centrato e occupa tutta la larghezza dello schermo */
+.gc-site {
+  position: relative; width: 100vw; max-width: 100vw;
+  margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important;
+  background: var(--ink); color: var(--warm-white); font-family: var(--f-body);
+  font-size: 17px; line-height: 1.6; overflow-x: clip;
+}
+/* Un solo livello di scroll: solo il body taglia l'eccesso laterale, senza diventare un secondo contenitore */
+html { background: var(--ink) !important; overflow: visible !important; }
+body { background: var(--ink) !important; overflow-x: clip !important; overflow-y: visible !important; }
+/* GHL: contenitori di sezione, riga e colonna senza limiti né padding */
+.c-section, .c-row, .c-column, .c-wrapper, .c-custom-code,
+.c-section > .inner, .c-row > .inner, .c-column > .inner,
+.fullSection, .fullContainer, .container, .inner {
+  max-width: none !important; padding: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; background: transparent !important;
+}
+</style>
+
+<script>
+/* Nasconde il titolo dell'apertura solo se l'animazione partirà; se GSAP non arriva entro 2,5 s il testo torna visibile */
+(function () { try { if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) { document.documentElement.classList.add("js-motion"); setTimeout(function () { document.documentElement.classList.remove("js-motion"); }, 2500); } } catch (e) {} })();
+</script>
+
+<!-- =====================================================================
+     GHL BLOCCO 01 · HEADER
+     ===================================================================== -->
+<div class="gc-site">
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="GianluContent, torna all'inizio">gianlu<span class="co">co</span>ntent<span class="ast" aria-hidden="true"><svg viewBox="-12 -12 24 24" overflow="visible" focusable="false"><path style="fill:currentColor;stroke:none" d="M9.44 -2.62 9.77 -2.98 9.91 -3.18 10.13 -3.62 10.26 -4.09 10.29 -4.58 10.22 -5.07 10.07 -5.53 9.82 -5.96 9.67 -6.15 9.31 -6.48 8.90 -6.74 8.44 -6.91 8.20 -6.97 7.71 -7.00 7.46 -6.98 6.99 -6.87 6.54 -6.66 2.50 -4.33 2.49 -9.25 2.45 -9.49 2.31 -9.96 2.08 -10.39 1.77 -10.77 1.39 -11.08 .96 -11.31 .49 -11.45 .25 -11.49 -.25 -11.49 -.49 -11.45 -.96 -11.31 -1.39 -11.08 -1.77 -10.77 -1.93 -10.59 -2.20 -10.18 -2.31 -9.96 -2.45 -9.49 -2.49 -9.25 -2.50 -4.33 -.38 -3.08 .19 -2.58 .64 -1.98 .97 -1.30 1.08 -.94 1.20 -.19 1.20 .19 1.08 .94 .82 1.65 .43 2.29 -.09 2.85 -.38 3.08 -2.50 4.33 -2.49 9.25 -2.39 9.73 -2.20 10.18 -1.93 10.59 -1.59 10.93 -1.18 11.20 -.96 11.31 -.49 11.45 .00 11.50 .49 11.45 .96 11.31 1.39 11.08 1.77 10.77 2.08 10.39 2.31 9.96 2.45 9.49 2.49 9.25 2.50 4.33 6.54 6.66 6.76 6.78 7.22 6.93 7.71 7.00 7.95 6.99 8.44 6.91 8.67 6.84 9.11 6.62 9.31 6.48 9.67 6.15 9.95 5.75 10.16 5.30 10.22 5.07 10.29 4.58 10.26 4.09 10.13 3.62 9.91 3.18 9.77 2.98 9.44 2.62 9.04 2.34 5.00 0 9.04 -2.34ZM-7.60 .00 -11.85 2.47 -12.22 2.79 -12.51 3.18 -12.73 3.62 -12.86 4.09 -12.89 4.58 -12.82 5.07 -12.67 5.53 -12.42 5.96 -12.10 6.33 -11.71 6.62 -11.27 6.84 -11.04 6.91 -10.55 6.99 -10.31 7.00 -9.82 6.93 -9.36 6.78 -9.14 6.66 -1.14 2.03 -.77 1.70 -.61 1.51 -.35 1.08 -.18 .62 -.10 .12 -.13 -.37 -.18 -.62 -.25 -.85 -.47 -1.30 -.61 -1.51 -.95 -1.87 -1.35 -2.16 -9.36 -6.78 -9.82 -6.93 -10.31 -7.00 -10.55 -6.99 -11.04 -6.91 -11.27 -6.84 -11.71 -6.62 -12.10 -6.33 -12.42 -5.96 -12.67 -5.53 -12.82 -5.07 -12.89 -4.58 -12.86 -4.09 -12.73 -3.62 -12.51 -3.18 -12.22 -2.79 -11.85 -2.47Z"/></svg></span></a>
+    <nav class="nav" id="nav" aria-label="Navigazione principale">
+      <a href="#servizi">Servizi</a>
+      <a href="#formazione">Corsi</a>
+      <a href="#chi-sono">Chi sono</a>
+      <a href="#risultati">Risultati</a>
+      <a href="#adv">Per brand AI</a>
+    </nav>
+    <div class="cta-row">
+      <button class="btn btn--lime header-cta" type="button" data-survey="generale">Prenota una call</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" id="menuToggle">Menu</button>
+    </div>
+  </div>
+</header>
+
+<div aria-hidden="true" style="height:72px"></div>
+<main>
+<!-- =====================================================================
+     GHL BLOCCO 02 · HERO
+     ===================================================================== -->
+<section class="band band--ink hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">AI · Contenuti · Formazione</span>
+        <h1 class="h1" id="hero-title">Ti insegno l'AI. Oppure la uso io <span class="accent">per te.</span></h1>
+        <p class="lead">Corsi, formazione su misura, affiancamento e gestione completa dei contenuti. Scegli quanto vuoi fare da solo: io e il mio team pensiamo al resto.</p>
+        <div class="cta-row">
+          <button class="btn btn--lime" type="button" data-survey="generale" data-magnet>Trova il servizio giusto <span class="arrow">→</span></button>
+          <a class="btn btn--ghost" href="#servizi">Guarda i servizi</a>
+        </div>
+        <p class="hero-note">Quattro domande, due minuti. Alla fine scegli tu se fissare la call.</p>
+      </div>
+      <div class="hero-photo">
+        <!-- FOTO 01 · ritratto hero (4:5). Su GHL: sostituisci src con l'URL della Media Library -->
+        <div class="photo photo--img" data-photo="hero"><picture><source srcset="img/hero.avif" type="image/avif"><img src="img/hero.webp" alt="Gianluca Giannini nel suo studio di contenuti AI" width="900" height="1125" fetchpriority="high"></picture></div>
+      </div>
+    </div>
+    <div class="proof-strip" aria-label="GianluContent in numeri">
+      <div class="proof"><b data-count="11">11</b><span>startup e tool AI che mi hanno affidato un lancio</span></div>
+      <div class="proof"><b data-count="22">22</b><span>corsi pratici nell'area riservata</span></div>
+      <div class="proof"><b data-count="2200" data-suffix="+">2.200+</b><span>iscrizioni ai corsi GianluContent</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 03 · SPETTRO DEI SERVIZI
+     ===================================================================== -->
+<section class="band band--ivory" id="servizi" aria-labelledby="servizi-title">
+  <div class="wrap">
+    <div class="spectrum-head">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">I servizi</span>
+        <h2 class="h2" id="servizi-title">Quanto vuoi fare <span class="accent">da solo?</span></h2>
+      </div>
+      <p class="lead">Quattro modi di lavorare con GianluContent, dal corso che segui la sera alla delega totale. Clicca e guarda chi fa cosa.</p>
+    </div>
+
+    <div class="spectrum" role="group" aria-label="Scegli il livello di delega">
+      <button class="stop" type="button" aria-pressed="true" data-stop="0"><span class="step">Livello 1</span><span class="name">Corsi</span><span class="line">Impari da solo, ai tuoi tempi.</span></button>
+      <button class="stop" type="button" aria-pressed="false" data-stop="1"><span class="step">Livello 2</span><span class="name">Su misura</span><span class="line">Impari con me, sul tuo caso.</span></button>
+      <button class="stop" type="button" aria-pressed="false" data-stop="2"><span class="step">Livello 3</span><span class="name">Affiancamento</span><span class="line">Impari mentre produciamo insieme.</span></button>
+      <button class="stop" type="button" aria-pressed="false" data-stop="3"><span class="step">Livello 4</span><span class="name">Agenzia</span><span class="line">Non ci pensi più: facciamo tutto noi.</span></button>
+    </div>
+
+    <div class="spectrum-panel" aria-live="polite">
+      <div class="sp-media">
+        <picture><source srcset="img/spettro-corsi.avif" type="image/avif"><img data-sp="0" src="img/spettro-corsi.webp" alt="Laptop su una scrivania serale con una lezione del corso AI Content Revolution" loading="lazy"></picture>
+        <picture><source srcset="img/spettro-su-misura.avif" type="image/avif"><img data-sp="1" src="img/spettro-su-misura.webp" alt="Gianluca spiega un workflow AI a una professionista, uno a uno" loading="lazy" hidden></picture>
+        <picture><source srcset="img/spettro-affiancamento.avif" type="image/avif"><img data-sp="2" src="img/spettro-affiancamento.webp" alt="Gianluca guida un cliente mentre registra un video in studio" loading="lazy" hidden></picture>
+        <picture><source srcset="img/spettro-agenzia.avif" type="image/avif"><img data-sp="3" src="img/spettro-agenzia.webp" alt="Due video editor del team producono contenuti e avatar AI" loading="lazy" hidden></picture>
+      </div>
+      <div class="sp-body">
+      <div class="panel-copy">
+        <h3 class="h3" id="sp-title">Corsi nell'area riservata</h3>
+        <p id="sp-text">Compri solo il corso che ti serve, lo segui quando vuoi e lo rivedi quando ti torna utile. Ideale se hai tempo e voglia di mettere le mani sugli strumenti.</p>
+        <div><a class="btn btn--ink" id="sp-link" href="#formazione">Vai ai corsi <span class="arrow">→</span></a></div>
+      </div>
+      <div class="split">
+        <div class="split-legend"><span><i class="k" style="background:var(--lavender)"></i>Tu fai <span id="sp-you">100%</span></span><span><i class="k" style="background:var(--purple)"></i>Noi facciamo <span id="sp-us">0%</span></span></div>
+        <div class="split-bar" aria-hidden="true"><div class="you" id="bar-you" style="flex-basis:100%"></div><div class="us" id="bar-us" style="flex-basis:0%"></div></div>
+        <p class="small" style="color:var(--ink-soft)">Stima indicativa del lavoro operativo. In ogni livello la strategia la decidiamo insieme.</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="adv-callout">
+      <p>Hai un tool o un software AI appena uscito e vuoi farlo conoscere?</p>
+      <a href="#adv">Servizio ADV per brand e startup →</a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 04 · FORMAZIONE (corsi + su misura)
+     ===================================================================== -->
+<section class="band band--wash" id="formazione" aria-labelledby="formazione-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="svc-tag" aria-hidden="true">01</span>
+      <span class="eyebrow">Formazione</span>
+      <h2 class="h2" id="formazione-title">Impara l'AI che <span class="accent">serve davvero.</span></h2>
+      <p class="lead">Niente teoria da manuale. Ogni corso nasce da strumenti che ho testato sul campo e da workflow che uso ogni giorno.</p>
+    </div>
+
+    <figure class="figure svc-figure">
+      <div class="frame"><picture><source srcset="img/formazione.avif" type="image/avif"><img src="img/formazione.webp" alt="Gianluca guida un workshop AI per il team di un'azienda" loading="lazy" style="object-position:50% 40%"></picture></div>
+    </figure>
+
+    <div class="two-col">
+      <article class="panel panel--white" aria-labelledby="corsi-title">
+        <span class="kicker">1a · Corsi on demand</span>
+        <h3 class="h3" id="corsi-title">Corsi singoli nell'area riservata</h3>
+        <p style="color:var(--ink-soft)">Acquisti il corso che ti serve, accedi subito e lo segui ai tuoi tempi. Alcuni dei più seguiti:</p>
+        <ul class="courses">
+          <li><strong>AI Content Revolution</strong><em>Il più seguito</em><span>Creare contenuti con l'AI, dall'idea alla pubblicazione.</span></li>
+          <li><strong>Realismo Artificiale</strong><em>Immagini e video</em><span>Visual AI credibili, senza l'effetto finto.</span></li>
+          <li><strong>Claude Prompt System</strong><em>Prompt</em><span>Prompt e sistemi pronti per lavorare con Claude.</span></li>
+          <li><strong>Fai il Bot</strong><em>Automazioni</em><span>Automazioni Manychat che rispondono e vendono nei DM.</span></li>
+          <li><strong>Avatar Facile</strong><em>Avatar AI</em><span>Crea il tuo avatar e fallo parlare al posto tuo.</span></li>
+          <li><strong>CapCut Go 2.0</strong><em>Montaggio</em><span>Montaggio veloce per Reel, TikTok e Shorts.</span></li>
+        </ul>
+        <div class="cta-row">
+          <!-- LINK: URL della pagina catalogo corsi o del login area membri GHL -->
+          <a class="btn btn--ink" href="#" data-link="catalogo-corsi">Vedi tutti i corsi <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="#" data-link="login-area-membri">Accedi all'area riservata</a>
+        </div>
+      </article>
+
+      <article class="panel panel--ink" aria-labelledby="sumisura-title">
+        <span class="kicker">1b · Formazione su misura</span>
+        <h3 class="h3" id="sumisura-title">Percorsi per aziende, team e professionisti</h3>
+        <p>Partiamo da come lavorate oggi e costruiamo il percorso intorno ai vostri processi, ai vostri strumenti e ai vostri obiettivi.</p>
+        <ul class="checks">
+          <li>Analisi iniziale di cosa fate oggi e dove l'AI fa risparmiare più tempo</li>
+          <li>Sessioni online o in presenza, a calendario concordato</li>
+          <li>Esercizi sui vostri materiali reali, non su esempi generici</li>
+          <li>Prompt, workflow e automazioni che restano a voi</li>
+        </ul>
+        <p class="quote-mini">Esempio: percorso personalizzato da 10 sessioni per una professionista che vuole usare l'AI nel suo personal brand.</p>
+        <div class="cta-row">
+          <button class="btn btn--lime" type="button" data-survey="formazione">Richiedi un percorso su misura <span class="arrow">→</span></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 05 · AFFIANCAMENTO (servizio ibrido)
+     ===================================================================== -->
+<section class="band band--ink" id="affiancamento" aria-labelledby="aff-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="svc-tag" aria-hidden="true">02</span>
+      <span class="eyebrow">Affiancamento · 1 mese</span>
+      <h2 class="h2" id="aff-title">Ti formiamo mentre lavoriamo <span class="accent">per te.</span></h2>
+      <p class="lead">In un mese impari il metodo e intanto ti ritrovi contenuti finiti, una strategia chiara e le automazioni già accese.</p>
+    </div>
+
+    <figure class="figure svc-figure">
+      <div class="frame"><picture><source srcset="img/affiancamento.avif" type="image/avif"><img src="img/affiancamento.webp" alt="Gianluca e una cliente rivedono insieme strategia e video pubblicato" loading="lazy" style="object-position:50% 40%"></picture></div>
+      <figcaption>Strategia, produzione e pubblicazione: lavoriamo fianco a fianco sui tuoi contenuti, e intanto impari il metodo.</figcaption>
+    </figure>
+
+    <div class="deliver" aria-label="Cosa ricevi in un mese">
+      <div><b>4 ore</b><span>di formazione dedicata sul tuo progetto</span></div>
+      <div><b>3</b><span>contenuti pronti, montati e finiti</span></div>
+      <div><b>1</b><span>content strategy costruita sul tuo pubblico</span></div>
+      <div><b class="word">Montaggio video</b><span>editing professionale dei tuoi contenuti</span></div>
+      <div><b class="word">Avatar AI</b><span>il tuo avatar per i video in cui non vuoi esserci</span><span class="maybe">Se ti serve</span></div>
+      <div><b class="word">Videomaker AI</b><span>un videomaker AI configurato per te, che automatizza la produzione video</span><span class="maybe">Se ti serve</span></div>
+      <div><b class="word">Automazioni</b><span>DM, raccolta contatti e follow-up per trasformare le visite in clienti</span></div>
+      <div><b class="word">Metodo</b><span>alla fine del mese sai rifarlo da solo, o scegli di continuare con noi</span></div>
+    </div>
+
+    <ol class="flow">
+      <li><strong>Call conoscitiva</strong><span>Capiamo obiettivi, punto di partenza e tempo che hai.</span></li>
+      <li><strong>Strategia</strong><span>Definiamo pubblico, format e messaggio dei contenuti.</span></li>
+      <li><strong>Formazione e produzione</strong><span>Impari il metodo mentre realizziamo i primi contenuti.</span></li>
+      <li><strong>Automazioni attive</strong><span>Contenuti pubblicati e sistema di conversione acceso.</span></li>
+    </ol>
+
+    <div class="section-cta">
+      <p>Fa per te se vuoi imparare, ma non vuoi aspettare mesi per vedere i primi contenuti online.</p>
+      <button class="btn btn--lime" type="button" data-survey="affiancamento">Verifica se fa per te <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 06 · AGENZIA (delega totale)
+     ===================================================================== -->
+<section class="band band--ivory" id="agenzia" aria-labelledby="agenzia-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="svc-tag" aria-hidden="true">03</span>
+      <span class="eyebrow">Agenzia · Delega totale</span>
+      <h2 class="h2" id="agenzia-title">Non hai tempo per imparare? <span class="accent">Facciamo tutto noi.</span></h2>
+      <p class="lead">Strategia, produzione e automazioni gestite dal team GianluContent. Tu approvi, noi pubblichiamo e portiamo traffico.</p>
+    </div>
+
+    <figure class="figure svc-figure">
+      <div class="frame"><picture><source srcset="img/agenzia.avif" type="image/avif"><img src="img/agenzia.webp" alt="Studio di produzione con calendario dei contenuti, montaggio e set per l'avatar" loading="lazy" style="object-position:50% 50%"></picture></div>
+      <figcaption>Il set lo gestiamo noi: tu approvi i contenuti, noi li produciamo e li pubblichiamo.</figcaption>
+    </figure>
+
+    <div class="plans">
+      <article class="plan"><b>8</b><span class="unit">contenuti al mese</span><h3>Presenza costante</h3><p>Due contenuti a settimana per farti trovare e ricordare.</p></article>
+      <article class="plan plan--focus"><span class="badge">Il più scelto</span><b>12</b><span class="unit">contenuti al mese</span><h3>Crescita</h3><p>Il ritmo giusto per costruire autorevolezza e portare richieste.</p></article>
+      <article class="plan"><b>20</b><span class="unit">contenuti al mese</span><h3>Massima visibilità</h3><p>Per chi vuole occupare il proprio mercato su più canali.</p></article>
+    </div>
+
+    <div class="included">
+      <article class="panel panel--white">
+        <span class="kicker">Sempre incluso</span>
+        <ul class="checks">
+          <li>Content strategy e piano editoriale mensile</li>
+          <li>Brand identity coerente su tutti i contenuti</li>
+          <li>Automazioni per raccogliere contatti e rispondere nei DM</li>
+          <li>PDF di approfondimento abbinati ai contenuti, da regalare a chi commenta</li>
+          <li>Avatar iperrealistico, se preferisci non metterci la faccia</li>
+        </ul>
+      </article>
+      <article class="panel panel--ink">
+        <span class="kicker">L'obiettivo</span>
+        <p style="color:var(--warm-white);font-size:19px;line-height:1.45">Ogni contenuto ha un compito preciso: portarti persone giuste, farti riconoscere come riferimento e trasformare l'attenzione in richieste.</p>
+        <div class="outcomes"><span>Traffico</span><span>Autorevolezza</span><span>Posizionamento chiaro</span></div>
+        <p class="small">Esempio: per un brand di AI experience marketing abbiamo creato e gestiamo una creator AI, con 8 contenuti al mese, script, avatar e funnel Manychat.</p>
+      </article>
+    </div>
+
+    <div class="section-cta">
+      <p style="color:var(--ink-soft)">Il prezzo dipende da volume, canali e servizi attivi. Dopo la call ricevi una proposta chiara, senza sorprese.</p>
+      <button class="btn btn--ink" type="button" data-survey="agenzia">Scopri il pacchetto giusto <span class="arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 07 · ADV PER BRAND AI
+     ===================================================================== -->
+<section class="band band--night" id="adv" aria-labelledby="adv-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <span class="svc-tag" aria-hidden="true">04</span>
+      <span class="eyebrow">Per startup, tool e software house AI</span>
+      <h2 class="h2" id="adv-title">Il tuo prodotto AI, <span class="accent">provato davvero.</span></h2>
+      <p class="lead">Testo il software, trovo il caso d'uso che funziona e lo racconto con contenuti dedicati sui miei canali. Con codici sconto e promozioni, se vuoi misurare le conversioni.</p>
+    </div>
+
+    <div class="adv-grid">
+      <ol class="steps">
+        <li><strong>Brief</strong><span>Ci racconti prodotto, pubblico e obiettivo della campagna.</span></li>
+        <li><strong>Test reale</strong><span>Uso il tool su un problema concreto, non su una demo preconfezionata.</span></li>
+        <li><strong>Script e produzione</strong><span>Script, registrazione schermo, avatar se previsto, montaggio.</span></li>
+        <li><strong>Approvazione</strong><span>Ricevi la bozza e chiedi le modifiche prima della pubblicazione.</span></li>
+        <li><strong>Pubblicazione</strong><span>Uscita su più canali, con link, codice sconto o promo dedicata.</span></li>
+      </ol>
+      <div class="adv-side">
+        <div style="display:grid;gap:12px">
+          <span class="eyebrow">Dove esce il tuo contenuto</span>
+          <div class="channels"><span>YouTube</span><span>Instagram</span><span>TikTok</span><span>Facebook</span><span>e altri canali</span></div>
+        </div>
+        <figure class="figure">
+          <div class="frame frame--32"><picture><source srcset="img/adv.avif" type="image/avif"><img src="img/adv.webp" alt="Gianluca prova dal vivo un nuovo tool AI davanti alla camera" loading="lazy"></picture></div>
+          <figcaption>Provo il tool davanti alla camera: chi guarda vede cosa fa davvero, e lo vuole provare.</figcaption>
+        </figure>
+        <div class="adv-example">
+          <span class="kicker">Esempio · Pollo.ai</span>
+          <strong>Un reel explainer e una guida PDF</strong>
+          <p>Il pubblico commenta una parola chiave e riceve la guida passo passo: il tool resta in mano alle persone anche dopo il video.</p>
+        </div>
+        <div class="adv-example">
+          <span class="kicker">Esempio · Emergent</span>
+          <strong>Dal problema all'app online, dal vivo</strong>
+          <p>Nessun avatar: un problema reale, la costruzione in diretta e l'URL funzionante a fine video.</p>
+        </div>
+        <div class="cta-row">
+          <button class="btn btn--lime" type="button" data-survey="adv" data-magnet>Proponi il tuo tool <span class="arrow">→</span></button>
+          <!-- LINK: media kit PDF -->
+          <a class="btn btn--ghost" href="#" data-link="media-kit">Media kit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 08 · BRAND CON CUI HO COLLABORATO
+     ===================================================================== -->
+<section class="band band--ink" id="brand" aria-labelledby="brand-title">
+  <div class="wrap">
+    <div class="spectrum-head">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">Collaborazioni</span>
+        <h2 class="h2" id="brand-title">Hanno scelto di farsi <span class="accent">raccontare.</span></h2>
+      </div>
+      <p class="lead">Startup e software house AI che mi hanno affidato il lancio o la promozione dei loro prodotti.</p>
+    </div>
+    <!-- LOGHI: sostituisci ogni nome con <img src="logo.svg" alt="Nome brand"> in versione monocromatica chiara -->
+    <div class="logo-loop" role="list" aria-label="Brand con cui ho collaborato">
+      <div class="loop-row">
+        <ul class="loop-track"><li role="listitem">Higgsfield</li><li role="listitem">CapCut</li><li role="listitem">Gamma</li><li role="listitem">Dreamina</li><li role="listitem">Pollo.ai</li><li role="listitem">Emergent</li></ul>
+        <ul class="loop-track" aria-hidden="true"><li>Higgsfield</li><li>CapCut</li><li>Gamma</li><li>Dreamina</li><li>Pollo.ai</li><li>Emergent</li></ul>
+      </div>
+      <div class="loop-row loop-row--reverse">
+        <ul class="loop-track"><li role="listitem">Pippit.ai</li><li role="listitem">SkyWork</li><li role="listitem">Typeless</li><li role="listitem">Verdant</li><li role="listitem">EnterPro.AI</li></ul>
+        <ul class="loop-track" aria-hidden="true"><li>Pippit.ai</li><li>SkyWork</li><li>Typeless</li><li>Verdant</li><li>EnterPro.AI</li></ul>
+      </div>
+    </div>
+    <div class="brands-cta">
+      <p>Hai un tool AI e vuoi essere il prossimo?</p>
+      <a class="btn btn--lime" href="#adv" data-magnet>Il tuo tool qui <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 09 · CHI SONO
+     ===================================================================== -->
+<section class="band band--ivory" id="chi-sono" aria-labelledby="about-title">
+  <div class="wrap about">
+    <!-- FOTO 02 · chi sono (4:5) -->
+    <div class="photo photo--img" data-photo="chi-sono"><picture><source srcset="img/chi-sono.avif" type="image/avif"><img src="img/chi-sono.webp" alt="Gianluca Giannini nel suo studio, davanti alla parete degli storyboard" width="900" height="1125" loading="lazy"></picture></div>
+    <div class="about-copy">
+      <span class="eyebrow">Chi sono</span>
+      <h2 class="h2" id="about-title">Ciao, sono <span class="accent">Gianluca.</span></h2>
+      <p class="first">Creo contenuti con l'intelligenza artificiale e insegno a farlo. Ogni settimana provo strumenti nuovi, tengo quelli che funzionano e li trasformo in processi che chiunque può ripetere.</p>
+      <p>Con GianluContent ho costruito un'area riservata con 22 corsi, collaboro con startup AI internazionali e seguo aziende e professionisti che vogliono usare l'AI per comunicare meglio e vendere di più. Il mio team si occupa di script, avatar, montaggio e automazioni, così ogni progetto arriva fino in fondo.</p>
+      <div class="facts">
+        <div><b>22</b><span>corsi pubblicati nell'area riservata</span></div>
+        <div><b>11</b><span>brand AI promossi sui miei canali</span></div>
+        <div><b>260</b><span>video AI prodotti per un solo cliente</span></div>
+        <div><b>4</b><span>canali: YouTube, Instagram, TikTok, Facebook</span></div>
+      </div>
+      <p class="signature">Prima l'idea. Poi gli strumenti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 10 · RISULTATI E TESTIMONIANZE
+     ===================================================================== -->
+<section class="band band--wash" id="risultati" aria-labelledby="ris-title">
+  <div class="wrap">
+    <div class="spectrum-head">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">Casi studio</span>
+        <h2 class="h2" id="ris-title">Risultati, <span class="accent">non promesse.</span></h2>
+      </div>
+      <p class="lead">Progetti partiti da zero e diventati presenze riconoscibili. Ogni caso indica il servizio usato.</p>
+    </div>
+
+    <figure class="figure svc-figure">
+      <div class="frame"><picture><source srcset="img/risultati.avif" type="image/avif"><img src="img/risultati.webp" alt="Smartphone con le statistiche di crescita di un profilo social" loading="lazy" style="object-position:50% 50%"></picture></div>
+    </figure>
+
+    <div class="cases">
+      <article class="case case--todo">
+        <div class="meta"><span class="svc">Affiancamento</span><span>[Settore]</span></div>
+        <div class="big">0 → 10.000+<small>follower in [X] mesi</small></div>
+        <p><span class="todo">Da completare</span> Nome del cliente, punto di partenza, cosa abbiamo fatto e screenshot del profilo.</p>
+      </article>
+      <article class="case case--todo">
+        <div class="meta"><span class="svc">Affiancamento</span><span>[Settore]</span></div>
+        <div class="big">0 → 11.000<small>follower in [X] mesi</small></div>
+        <p><span class="todo">Da completare</span> Nome del cliente, risultato oltre ai follower (richieste, vendite, call) e frase del cliente.</p>
+      </article>
+      <article class="case">
+        <div class="meta"><span class="svc">Agenzia</span><span>AI experience marketing</span></div>
+        <div class="big">Carla AI<small>Creator AI per Selfiebox</small></div>
+        <p>Abbiamo creato una creator AI per il brand: strategia, avatar, script, piano editoriale mensile e funnel Manychat per portare richieste corporate e franchising. <span class="todo">Aggiungi i risultati</span></p>
+      </article>
+      <article class="case">
+        <div class="meta"><span class="svc">Produzione</span><span>Fitness · App</span></div>
+        <div class="big">260 video<small>AI + 3 teaser per BrainFit</small></div>
+        <p>Produzione su larga scala di video AI per il portale di un'app fitness, con teaser da 12 secondi per il lancio.</p>
+      </article>
+    </div>
+
+    <div class="testimonials">
+      <!-- TESTIMONIANZE: sostituisci con frase reale, nome, ruolo e foto (con consenso scritto del cliente) -->
+      <figure class="testi"><blockquote>[Testimonianza da inserire. Due o tre frasi sul risultato ottenuto, con un numero se possibile.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Azienda]</span></figcaption></figure>
+      <figure class="testi"><blockquote>[Testimonianza da inserire. Meglio se di un brand ADV: cosa è successo dopo la pubblicazione.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Brand]</span></figcaption></figure>
+      <figure class="testi"><blockquote>[Testimonianza da inserire. Ideale da un corso o da una formazione su misura.]</blockquote><figcaption><span class="avatar"></span><span><b>[Nome Cognome]</b>[Ruolo · Azienda]</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 11 · FAQ
+     ===================================================================== -->
+<section class="band band--ink" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div style="display:grid;gap:18px;align-content:start">
+      <span class="eyebrow">Domande frequenti</span>
+      <h2 class="h2" id="faq-title">Prima di <span class="accent">scriverci.</span></h2>
+      <div><button class="btn btn--ghost" type="button" data-survey="generale">Non trovi la risposta? Scrivici</button></div>
+    </div>
+    <div>
+      <details><summary>Non so quale servizio scegliere. Da dove parto?</summary><p>Rispondi alle quattro domande del questionario: ti suggeriamo il servizio più adatto in base al tempo che hai e a cosa vuoi ottenere. Poi decidi tu se fissare la call.</p></details>
+      <details><summary>Serve esperienza con l'intelligenza artificiale?</summary><p>No. Corsi e formazione partono dalle basi e arrivano a workflow avanzati. Con affiancamento e agenzia lavoriamo noi sugli strumenti al posto tuo.</p></details>
+      <details><summary>Devo per forza metterci la faccia?</summary><p>No. Possiamo creare un avatar AI iperrealistico che parla al posto tuo, oppure costruire contenuti che non richiedono un volto.</p></details>
+      <details><summary>Quanto costano affiancamento e agenzia?</summary><p>Dipende da volume, canali e servizi attivi. Dopo la call ricevi una proposta scritta con prezzo e consegne chiare. I corsi hanno il prezzo indicato nella pagina di ciascuno.</p></details>
+      <details><summary>Come funziona la call conoscitiva?</summary><p>È una chiamata online per capire il tuo punto di partenza e i tuoi obiettivi. Se vediamo che possiamo aiutarti, ti proponiamo il servizio adatto. Se non è il momento, te lo diciamo.</p></details>
+      <details><summary>Sono un'azienda: fate formazione per tutto il team?</summary><p>Sì. La formazione su misura può coinvolgere una persona o un intero team, online o in presenza, con esercizi sui materiali dell'azienda.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     GHL BLOCCO 12 · CTA FINALE
+     ===================================================================== -->
+<section class="band band--night final" aria-labelledby="final-title">
+  <div class="wrap final-grid">
+   <div class="final-copy">
+    <span class="eyebrow">Il prossimo passo</span>
+    <h2 class="h1" id="final-title">Prima l'idea. <span class="accent">Poi gli strumenti.</span></h2>
+    <p class="lead">Raccontaci da dove parti. In due minuti capiamo insieme quale servizio ti porta più lontano.</p>
+    <div class="cta-row">
+      <button class="btn btn--lime" type="button" data-survey="generale" data-magnet>Trova il servizio giusto <span class="arrow">→</span></button>
+      <a class="btn btn--ghost" href="#formazione">Preferisco un corso</a>
+    </div>
+   </div>
+    <!-- FOTO 03 · chiusura (3:4): taccuino idea → ciak → video -->
+    <div class="photo photo--img" data-photo="chiusura"><picture><source srcset="img/chiusura.avif" type="image/avif"><img src="img/chiusura.webp" alt="Gianluca mostra il taccuino con lo schizzo idea, ciak, video" width="900" height="1206" loading="lazy"></picture></div>
+  </div>
+</section>
+</main>
+
+<!-- =====================================================================
+     GHL BLOCCO 13 · FOOTER
+     ===================================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div style="display:grid;gap:12px;align-content:start">
+        <a class="logo" href="#top">gianlu<span class="co">co</span>ntent<span class="ast" aria-hidden="true"><svg viewBox="-12 -12 24 24" overflow="visible" focusable="false"><path style="fill:currentColor;stroke:none" d="M9.44 -2.62 9.77 -2.98 9.91 -3.18 10.13 -3.62 10.26 -4.09 10.29 -4.58 10.22 -5.07 10.07 -5.53 9.82 -5.96 9.67 -6.15 9.31 -6.48 8.90 -6.74 8.44 -6.91 8.20 -6.97 7.71 -7.00 7.46 -6.98 6.99 -6.87 6.54 -6.66 2.50 -4.33 2.49 -9.25 2.45 -9.49 2.31 -9.96 2.08 -10.39 1.77 -10.77 1.39 -11.08 .96 -11.31 .49 -11.45 .25 -11.49 -.25 -11.49 -.49 -11.45 -.96 -11.31 -1.39 -11.08 -1.77 -10.77 -1.93 -10.59 -2.20 -10.18 -2.31 -9.96 -2.45 -9.49 -2.49 -9.25 -2.50 -4.33 -.38 -3.08 .19 -2.58 .64 -1.98 .97 -1.30 1.08 -.94 1.20 -.19 1.20 .19 1.08 .94 .82 1.65 .43 2.29 -.09 2.85 -.38 3.08 -2.50 4.33 -2.49 9.25 -2.39 9.73 -2.20 10.18 -1.93 10.59 -1.59 10.93 -1.18 11.20 -.96 11.31 -.49 11.45 .00 11.50 .49 11.45 .96 11.31 1.39 11.08 1.77 10.77 2.08 10.39 2.31 9.96 2.45 9.49 2.49 9.25 2.50 4.33 6.54 6.66 6.76 6.78 7.22 6.93 7.71 7.00 7.95 6.99 8.44 6.91 8.67 6.84 9.11 6.62 9.31 6.48 9.67 6.15 9.95 5.75 10.16 5.30 10.22 5.07 10.29 4.58 10.26 4.09 10.13 3.62 9.91 3.18 9.77 2.98 9.44 2.62 9.04 2.34 5.00 0 9.04 -2.34ZM-7.60 .00 -11.85 2.47 -12.22 2.79 -12.51 3.18 -12.73 3.62 -12.86 4.09 -12.89 4.58 -12.82 5.07 -12.67 5.53 -12.42 5.96 -12.10 6.33 -11.71 6.62 -11.27 6.84 -11.04 6.91 -10.55 6.99 -10.31 7.00 -9.82 6.93 -9.36 6.78 -9.14 6.66 -1.14 2.03 -.77 1.70 -.61 1.51 -.35 1.08 -.18 .62 -.10 .12 -.13 -.37 -.18 -.62 -.25 -.85 -.47 -1.30 -.61 -1.51 -.95 -1.87 -1.35 -2.16 -9.36 -6.78 -9.82 -6.93 -10.31 -7.00 -10.55 -6.99 -11.04 -6.91 -11.27 -6.84 -11.71 -6.62 -12.10 -6.33 -12.42 -5.96 -12.67 -5.53 -12.82 -5.07 -12.89 -4.58 -12.86 -4.09 -12.73 -3.62 -12.51 -3.18 -12.22 -2.79 -11.85 -2.47Z"/></svg></span></a>
+        <p>Creatività, AI e produzione di contenuti trasformate in un processo concreto.</p>
+      </div>
+      <div><h4>Servizi</h4><ul><li><a href="#formazione">Corsi e formazione</a></li><li><a href="#affiancamento">Affiancamento</a></li><li><a href="#agenzia">Agenzia</a></li><li><a href="#adv">ADV per brand AI</a></li></ul></div>
+      <div><h4>Seguimi</h4><ul><li><a href="#" data-link="youtube">YouTube</a></li><li><a href="#" data-link="instagram">Instagram</a></li><li><a href="#" data-link="tiktok">TikTok</a></li><li><a href="#" data-link="facebook">Facebook</a></li></ul></div>
+      <div><h4>Area clienti</h4><ul><li><a href="#" data-link="login-area-membri">Accedi ai corsi</a></li><li><a href="#" data-link="privacy">Privacy policy</a></li><li><a href="#" data-link="cookie">Cookie policy</a></li><li><a href="#" class="iubenda-cs-preferences-link">Preferenze cookie</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span><b style="color:var(--warm-white)">GianluContent</b> è un marchio di G.Solutions di Gianluca Giannini · © 2024 Tutti i diritti riservati · P.IVA 08280050728</span>
+      <span>Telefono e WhatsApp: 350 924 8676 · <a href="mailto:info@sfacciatidigitali.net">info@sfacciatidigitali.net</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================================
+     GHL BLOCCO 14 · SURVEY (finestra unica, riusata da tutti i pulsanti data-survey)
+     ===================================================================== -->
+<dialog class="survey" id="survey" aria-labelledby="sv-q">
+  <form class="survey-inner" id="svForm" novalidate>
+    <div class="survey-top">
+      <div class="survey-bar">
+        <span class="survey-kicker" id="sv-kicker">Trova il servizio giusto</span>
+        <button class="survey-close" type="button" id="svClose" aria-label="Chiudi il questionario">×</button>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="sv-progress"></i></div>
+    </div>
+    <div class="survey-body" id="sv-body"></div>
+    <div class="survey-foot">
+      <button class="btn btn--ghost" type="button" id="svBack">Indietro</button>
+      <button class="btn btn--lime" type="submit" id="svNext">Avanti <span class="arrow">→</span></button>
+    </div>
+  </form>
+</dialog>
+
+</div><!-- /gc-site -->
+
+<!-- =====================================================================
+     GHL · JS GLOBALE
+     Su GHL va in "Tracking code > Footer" della pagina, oppure in un blocco Custom JS/HTML in fondo.
+     ===================================================================== -->
+<script>
+(function () {
+  /* ---------- CONFIGURAZIONE: da compilare prima di pubblicare su GHL ---------- */
+  var CONFIG = {
+    // Webhook in entrata di un Workflow GHL (trigger "Inbound Webhook"). Vuoto = nessun invio.
+    ghlWebhookUrl: "https://services.leadconnectorhq.com/hooks/QDZvsEZK4V1jvvrMf1cx/webhook-trigger/62c6ec14-3198-4669-a83c-62279ea7d821",
+    // Link dei calendari GHL per servizio. Vuoto = la call viene proposta senza link diretto.
+    calendari: {
+      generale: "", formazione: "", affiancamento: "", agenzia: "", adv: "", corsi: ""
+    },
+    // Link di pagina (catalogo corsi, login, social, media kit, privacy...)
+    link: {
+      "brief-formazione": "/brief-formazione",   // pagina GHL del brief: crea in GHL una pagina con questo percorso
+      "catalogo-corsi": "", "login-area-membri": "", "media-kit": "",
+      youtube: "", instagram: "", tiktok: "", facebook: "", privacy: "https://www.iubenda.com/privacy-policy/35480411",
+      cookie: "https://www.iubenda.com/privacy-policy/35480411/cookie-policy"
+    }
+  };
+
+  /* ---------- Link configurabili ---------- */
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var url = CONFIG.link[a.getAttribute("data-link")];
+    if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+  });
+
+  /* ---------- Menu mobile ---------- */
+  var header = document.querySelector(".site-header");
+  var toggle = document.getElementById("menuToggle");
+  toggle.addEventListener("click", function () {
+    var open = header.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.querySelectorAll("#nav a").forEach(function (a) {
+    a.addEventListener("click", function () { header.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); });
+  });
+
+  /* ---------- Spettro dei servizi ---------- */
+  var STOPS = [
+    { t: "Corsi nell'area riservata", d: "Compri solo il corso che ti serve, lo segui quando vuoi e lo rivedi quando ti torna utile. Ideale se hai tempo e voglia di mettere le mani sugli strumenti.", you: 100, href: "#formazione", cta: "Vai ai corsi" },
+    { t: "Formazione su misura", d: "Un percorso costruito sui tuoi processi, per te o per il tuo team. Impari sui tuoi materiali e ti restano prompt, workflow e automazioni.", you: 75, href: "#formazione", cta: "Scopri la formazione" },
+    { t: "Affiancamento di un mese", d: "4 ore di formazione, 3 contenuti finiti, strategia e automazioni. Impari il metodo mentre il lavoro va avanti.", you: 40, href: "#affiancamento", cta: "Scopri l'affiancamento" },
+    { t: "Agenzia, delega totale", d: "8, 12 o 20 contenuti al mese con strategia, brand identity, automazioni e avatar se serve. Tu approvi, noi facciamo il resto.", you: 5, href: "#agenzia", cta: "Scopri l'agenzia" }
+  ];
+  var stops = document.querySelectorAll(".stop");
+  function setStop(i) {
+    var s = STOPS[i];
+    stops.forEach(function (b, j) { b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    document.getElementById("sp-title").textContent = s.t;
+    document.getElementById("sp-text").textContent = s.d;
+    var link = document.getElementById("sp-link");
+    link.href = s.href; link.firstChild.nodeValue = s.cta + " ";
+    document.getElementById("sp-you").textContent = s.you + "%";
+    document.getElementById("sp-us").textContent = (100 - s.you) + "%";
+    document.getElementById("bar-you").style.flexBasis = s.you + "%";
+    document.getElementById("bar-us").style.flexBasis = (100 - s.you) + "%";
+    document.querySelectorAll("[data-sp]").forEach(function (im) { im.hidden = im.getAttribute("data-sp") !== String(i); });
+  }
+  stops.forEach(function (b, i) { b.addEventListener("click", function () { setStop(i); }); });
+
+  /* ---------- Survey ---------- */
+  var SERVIZI = {
+    corsi: { nome: "Corsi on demand", desc: "Parti da un corso dell'area riservata: impari ai tuoi tempi e spendi solo per quello che ti serve.", ancora: "#formazione" },
+    formazione: { nome: "Formazione su misura", desc: "Un percorso costruito sui tuoi processi, per te o per il tuo team.", ancora: "#formazione" },
+    affiancamento: { nome: "Affiancamento", desc: "Un mese di formazione e produzione insieme: 3 contenuti finiti, strategia e automazioni.", ancora: "#affiancamento" },
+    agenzia: { nome: "Agenzia", desc: "Deleghi strategia, produzione e automazioni: 8, 12 o 20 contenuti al mese.", ancora: "#agenzia" },
+    adv: { nome: "Collaborazione ADV", desc: "Testiamo il tuo tool e lo raccontiamo sui canali GianluContent.", ancora: "#adv" }
+  };
+
+  // Ogni opzione può dare punti ai servizi (solo survey "generale") e un tag per GHL.
+  var SURVEYS = {
+    generale: {
+      kicker: "Trova il servizio giusto",
+      steps: [
+        { id: "profilo", q: "Chi sei?", type: "single", opts: [
+          { l: "Freelance o professionista", s: { corsi: 1, formazione: 1, affiancamento: 2 } },
+          { l: "Azienda o PMI", s: { formazione: 2, agenzia: 2 } },
+          { l: "Creator o imprenditore digitale", s: { corsi: 2, affiancamento: 2 } },
+          { l: "Startup, tool o software house AI", s: { adv: 10 } }
+        ]},
+        { id: "obiettivo", q: "Cosa vuoi ottenere per primo?", type: "single", opts: [
+          { l: "Imparare a usare l'AI nel mio lavoro", s: { corsi: 2, formazione: 2 } },
+          { l: "Pubblicare contenuti con costanza", s: { affiancamento: 2, agenzia: 2 } },
+          { l: "Più clienti e più vendite", s: { affiancamento: 2, agenzia: 2 } },
+          { l: "Far conoscere un prodotto AI", s: { adv: 6 } }
+        ]},
+        { id: "tempo", q: "Quanto tempo puoi dedicarci ogni settimana?", type: "single", opts: [
+          { l: "Meno di 1 ora", h: "Voglio delegare il più possibile", s: { agenzia: 3 } },
+          { l: "Da 1 a 3 ore", s: { affiancamento: 2, formazione: 1 } },
+          { l: "Più di 3 ore", h: "Voglio imparare a farlo io", s: { corsi: 2, formazione: 2 } }
+        ]},
+        { id: "modalita", q: "Come preferisci lavorare?", type: "single", opts: [
+          { l: "Da solo, con un corso", s: { corsi: 4 } },
+          { l: "Con una formazione dedicata", s: { formazione: 4 } },
+          { l: "Insieme a voi: imparo mentre producete", s: { affiancamento: 4 } },
+          { l: "Delego tutto", s: { agenzia: 4 } }
+        ]}
+      ]
+    },
+    formazione: {
+      kicker: "Formazione su misura",
+      steps: [
+        { id: "destinatari", q: "Per chi è la formazione?", type: "single", opts: [
+          { l: "Solo per me" }, { l: "Per un team da 2 a 10 persone" }, { l: "Per un'azienda con più di 10 persone" }
+        ]},
+        { id: "livello", q: "Che livello hai con l'AI?", type: "single", opts: [
+          { l: "Base", h: "Uso poco o niente ChatGPT e simili" },
+          { l: "Intermedio", h: "Uso l'AI, ma senza un metodo" },
+          { l: "Avanzato", h: "Voglio automatizzare processi interi" }
+        ]},
+        { id: "temi", q: "Su quali temi vuoi lavorare?", type: "multi", hint: "Puoi sceglierne più di uno.", opts: [
+          { l: "Contenuti social e copywriting" }, { l: "Video AI e avatar" }, { l: "Automazioni e funnel" },
+          { l: "Prompt e assistenti AI" }, { l: "Organizzazione aziendale con l'AI" }
+        ]},
+        { id: "formato", q: "Che formato preferisci?", type: "single", opts: [
+          { l: "Online, in diretta" }, { l: "In presenza" }, { l: "Misto" }
+        ]},
+        { id: "quando", q: "Quando vorresti iniziare?", type: "single", opts: [
+          { l: "Entro un mese" }, { l: "Entro tre mesi" }, { l: "Sto solo raccogliendo informazioni" }
+        ]}
+      ]
+    },
+    affiancamento: {
+      kicker: "Affiancamento · 1 mese",
+      steps: [
+        { id: "attivita", q: "Di cosa ti occupi?", type: "text", ph: "Es. consulente finanziaria, studio dentistico, coach...", req: true },
+        { id: "social", q: "Dove sei oggi sui social?", type: "single", opts: [
+          { l: "Parto da zero" }, { l: "Meno di 1.000 follower" }, { l: "Tra 1.000 e 10.000 follower" }, { l: "Oltre 10.000 follower" }
+        ]},
+        { id: "offerta", q: "Hai già un'offerta da vendere?", type: "single", opts: [
+          { l: "Sì, ed è chiara" }, { l: "Sì, ma va sistemata" }, { l: "Non ancora" }
+        ]},
+        { id: "extra", q: "Cosa ti interessa di più?", type: "multi", hint: "Puoi sceglierne più di uno.", opts: [
+          { l: "Imparare il metodo" }, { l: "Avere contenuti finiti" }, { l: "Avatar AI" }, { l: "Videomaker AI" }, { l: "Automazioni per vendere" }
+        ]},
+        { id: "quando", q: "Quando vorresti iniziare?", type: "single", opts: [
+          { l: "Subito" }, { l: "Entro un mese" }, { l: "Più avanti" }
+        ]}
+      ]
+    },
+    agenzia: {
+      kicker: "Agenzia · Delega totale",
+      steps: [
+        { id: "attivita", q: "Di cosa si occupa la tua attività?", type: "text", ph: "Settore, prodotto o servizio principale", req: true },
+        { id: "volume", q: "Quanti contenuti al mese immagini?", type: "single", opts: [
+          { l: "8 contenuti" }, { l: "12 contenuti" }, { l: "20 contenuti" }, { l: "Non lo so, consigliatemi voi" }
+        ]},
+        { id: "volto", q: "Chi ci mette la faccia?", type: "single", opts: [
+          { l: "Io o qualcuno del team" }, { l: "Preferisco un avatar iperrealistico" }, { l: "Contenuti senza volto" }, { l: "Ne parliamo in call" }
+        ]},
+        { id: "obiettivo", q: "Qual è l'obiettivo principale?", type: "single", opts: [
+          { l: "Più traffico e visibilità" }, { l: "Autorevolezza nel mio settore" }, { l: "Richieste e vendite" }
+        ]},
+        { id: "budget", q: "Che budget mensile hai in mente?", type: "single", hint: "Ci serve solo per proporti il pacchetto giusto.", opts: [
+          { l: "Fino a 1.000 €" }, { l: "Da 1.000 a 2.500 €" }, { l: "Da 2.500 a 5.000 €" }, { l: "Oltre 5.000 €" }, { l: "Preferisco parlarne in call" }
+        ]}
+      ]
+    },
+    adv: {
+      kicker: "Collaborazione ADV",
+      steps: [
+        { id: "prodotto", q: "Come si chiama il tuo prodotto?", type: "text", ph: "Nome e sito del tool", req: true },
+        { id: "categoria", q: "Che tipo di prodotto è?", type: "single", opts: [
+          { l: "Video, immagini o audio AI" }, { l: "Produttività, agenti o workspace" }, { l: "App builder o sviluppo" }, { l: "Marketing e vendite" }, { l: "Altro" }
+        ]},
+        { id: "fase", q: "In che fase è?", type: "single", opts: [
+          { l: "Lancio imminente" }, { l: "Appena lanciato" }, { l: "Già sul mercato, nuova funzione" }
+        ]},
+        { id: "canali", q: "Su quali canali vuoi uscire?", type: "multi", hint: "Puoi sceglierne più di uno.", opts: [
+          { l: "YouTube" }, { l: "Instagram" }, { l: "TikTok" }, { l: "Facebook" }, { l: "Tutti" }
+        ]},
+        { id: "promo", q: "Prevedi un codice sconto o una promozione?", type: "single", opts: [
+          { l: "Sì" }, { l: "No" }, { l: "Da valutare insieme" }
+        ]},
+        { id: "tempi", q: "Quando vorresti pubblicare?", type: "single", opts: [
+          { l: "Entro 2 settimane" }, { l: "Entro un mese" }, { l: "Più avanti" }
+        ]}
+      ]
+    }
+  };
+
+  var CONTACT_STEP = { id: "contatti", q: "Dove ti ricontattiamo?", type: "contact" };
+
+  var dlg = document.getElementById("survey");
+  var form = document.getElementById("svForm");
+  var body = document.getElementById("sv-body");
+  var btnNext = document.getElementById("svNext");
+  var btnBack = document.getElementById("svBack");
+  var state = null;
+
+  function openSurvey(key) {
+    var sv = SURVEYS[key] || SURVEYS.generale;
+    state = { key: key, sv: sv, steps: sv.steps.concat([CONTACT_STEP]), i: 0, answers: {}, contact: {} };
+    document.getElementById("sv-kicker").textContent = sv.kicker;
+    render();
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+  }
+  function closeSurvey() { if (dlg.open) dlg.close(); }
+
+  document.querySelectorAll("[data-survey]").forEach(function (b) {
+    b.addEventListener("click", function () { openSurvey(b.getAttribute("data-survey")); });
+  });
+  document.getElementById("svClose").addEventListener("click", closeSurvey);
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) closeSurvey(); });
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function render() {
+    var total = state.steps.length;
+    var done = state.i >= total;
+    document.getElementById("sv-progress").style.width = (done ? 100 : Math.round((state.i / total) * 100)) + "%";
+    btnBack.hidden = state.i === 0 || done;
+    if (done) return renderResult();
+    var st = state.steps[state.i];
+    var html = '<p class="survey-kicker">Domanda ' + (state.i + 1) + " di " + total + "</p>";
+    html += '<h3 id="sv-q">' + esc(st.q) + "</h3>";
+    if (st.hint) html += '<p class="hint">' + esc(st.hint) + "</p>";
+    if (st.type === "single" || st.type === "multi") {
+      var prev = state.answers[st.id];
+      html += '<div class="opts" role="' + (st.type === "single" ? "radiogroup" : "group") + '" aria-labelledby="sv-q">';
+      st.opts.forEach(function (o, j) {
+        var checked = st.type === "single" ? prev === o.l : (prev || []).indexOf(o.l) > -1;
+        html += '<label class="opt"><input type="' + (st.type === "single" ? "radio" : "checkbox") + '" name="sv-' + st.id + '" id="sv-' + st.id + "-" + j + '" value="' + esc(o.l) + '"' + (checked ? " checked" : "") + "><span>" + esc(o.l) + (o.h ? "<small>" + esc(o.h) + "</small>" : "") + "</span></label>";
+      });
+      html += "</div>";
+    } else if (st.type === "text") {
+      html += '<div class="field"><label for="sv-' + st.id + '">Risposta</label><input id="sv-' + st.id + '" type="text" placeholder="' + esc(st.ph || "") + '" value="' + esc(state.answers[st.id] || "") + '"></div>';
+    } else if (st.type === "contact") {
+      var c = state.contact;
+      html += '<div class="fields-2"><div class="field"><label for="sv-nome">Nome</label><input id="sv-nome" type="text" autocomplete="given-name" value="' + esc(c.nome || "") + '"></div>' +
+        '<div class="field"><label for="sv-cognome">Cognome</label><input id="sv-cognome" type="text" autocomplete="family-name" value="' + esc(c.cognome || "") + '"></div></div>' +
+        '<div class="fields-2"><div class="field"><label for="sv-email">Email</label><input id="sv-email" type="email" autocomplete="email" value="' + esc(c.email || "") + '"></div>' +
+        '<div class="field"><label for="sv-tel">Telefono</label><input id="sv-tel" type="tel" autocomplete="tel" value="' + esc(c.telefono || "") + '"></div></div>' +
+        '<div class="field"><label for="sv-link">Sito o profilo social (facoltativo)</label><input id="sv-link" type="text" placeholder="instagram.com/..." value="' + esc(c.link || "") + '"></div>' +
+        '<div class="field"><label for="sv-note">Vuoi aggiungere qualcosa? (facoltativo)</label><textarea id="sv-note">' + esc(c.note || "") + "</textarea></div>" +
+        '<label class="consent"><input type="checkbox" id="sv-privacy"' + (c.privacy ? " checked" : "") + '><span>Ho letto la <a href="' + esc(CONFIG.link.privacy || "#") + '" target="_blank" rel="noopener">privacy policy</a> e acconsento a essere ricontattato per questa richiesta.</span></label>' +
+        '<label class="consent"><input type="checkbox" id="sv-mkt"' + (c.marketing ? " checked" : "") + '><span>Voglio ricevere anche novità, guide e offerte di GianluContent (facoltativo).</span></label>';
+    }
+    html += '<p class="err" id="sv-err" role="alert"></p>';
+    body.innerHTML = html;
+    btnNext.innerHTML = state.i === total - 1 ? 'Invia e vedi il risultato <span class="arrow">→</span>' : 'Avanti <span class="arrow">→</span>';
+    btnNext.hidden = false;
+    var first = body.querySelector("input, textarea");
+    if (first) setTimeout(function () { first.focus(); }, 30);
+  }
+
+  function collect() {
+    var st = state.steps[state.i];
+    var err = document.getElementById("sv-err");
+    if (st.type === "single") {
+      var sel = body.querySelector("input:checked");
+      if (!sel) { err.textContent = "Scegli una risposta per andare avanti."; return false; }
+      state.answers[st.id] = sel.value;
+    } else if (st.type === "multi") {
+      var vals = Array.prototype.map.call(body.querySelectorAll("input:checked"), function (x) { return x.value; });
+      if (!vals.length) { err.textContent = "Scegli almeno una risposta."; return false; }
+      state.answers[st.id] = vals;
+    } else if (st.type === "text") {
+      var v = document.getElementById("sv-" + st.id).value.trim();
+      if (st.req && !v) { err.textContent = "Scrivi una risposta breve per andare avanti."; return false; }
+      state.answers[st.id] = v;
+    } else if (st.type === "contact") {
+      var c = {
+        nome: document.getElementById("sv-nome").value.trim(),
+        cognome: document.getElementById("sv-cognome").value.trim(),
+        email: document.getElementById("sv-email").value.trim(),
+        telefono: document.getElementById("sv-tel").value.trim(),
+        link: document.getElementById("sv-link").value.trim(),
+        note: document.getElementById("sv-note").value.trim(),
+        privacy: document.getElementById("sv-privacy").checked,
+        marketing: document.getElementById("sv-mkt").checked
+      };
+      state.contact = c;
+      if (!c.nome) { err.textContent = "Inserisci il tuo nome."; return false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) { err.textContent = "Controlla l'email: sembra incompleta."; return false; }
+      if (!c.privacy) { err.textContent = "Per ricontattarti ci serve il consenso alla privacy policy."; return false; }
+    }
+    return true;
+  }
+
+  function recommend() {
+    if (state.key !== "generale") return state.key;
+    var score = { corsi: 0, formazione: 0, affiancamento: 0, agenzia: 0, adv: 0 };
+    state.sv.steps.forEach(function (st) {
+      var a = state.answers[st.id];
+      st.opts.forEach(function (o) { if (o.l === a && o.s) Object.keys(o.s).forEach(function (k) { score[k] += o.s[k]; }); });
+    });
+    return Object.keys(score).sort(function (a, b) { return score[b] - score[a]; })[0];
+  }
+
+  function slug(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+
+  function buildPayload(rec) {
+    var tags = ["sito-survey", "survey-" + state.key, "consigliato-" + rec];
+    if (state.answers.budget) tags.push("budget-" + slug(state.answers.budget));
+    if (state.answers.quando || state.answers.tempi) tags.push("tempi-" + slug(state.answers.quando || state.answers.tempi));
+    if (state.contact.marketing) tags.push("newsletter-si");
+    return {
+      first_name: state.contact.nome, last_name: state.contact.cognome, email: state.contact.email, phone: state.contact.telefono,
+      website: state.contact.link, note: state.contact.note,
+      consenso_privacy: state.contact.privacy, consenso_marketing: state.contact.marketing,
+      survey: state.key, servizio_consigliato: rec, risposte: state.answers, tags: tags,
+      pagina: location.href, inviato_il: new Date().toISOString()
+    };
+  }
+
+  // Invio come modulo web classico (niente controlli preventivi del browser).
+  // In GHL ogni campo arriva separato: first_name, email, risposta_<domanda>, tags...
+  function send(payload) {
+    if (!CONFIG.ghlWebhookUrl) return;
+    var data = new URLSearchParams();
+    Object.keys(payload).forEach(function (k) {
+      var v = payload[k];
+      if (k === "risposte") {
+        Object.keys(v).forEach(function (q) { data.append("risposta_" + q, [].concat(v[q]).join(", ")); });
+        var sv = SURVEYS[payload.survey] || { steps: [] };
+        var label = function (id) { var st = sv.steps.filter(function (x) { return x.id === id; })[0]; return st ? st.q : id; };
+        // Separatore visibile: gli "a capo" si perdono nelle email HTML di GHL
+        data.append("riepilogo_risposte", Object.keys(v).map(function (q) { return label(q) + " → " + [].concat(v[q]).join(", "); }).join("  |  "));
+        // Versione per l'email: una domanda per riga (da usare nel corpo dell'email GHL)
+        var esc = function (t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); };
+        data.append("riepilogo_html", Object.keys(v).map(function (q) { return esc(label(q)) + ": <b>" + esc([].concat(v[q]).join(", ")) + "</b>"; }).join("<br>"));
+      } else if (Array.isArray(v)) {
+        data.append(k, v.join(","));
+      } else {
+        data.append(k, v === true ? "si" : v === false ? "no" : String(v == null ? "" : v));
+      }
+    });
+    try {
+      fetch(CONFIG.ghlWebhookUrl, { method: "POST", mode: "no-cors", body: data }).catch(function () {});
+    } catch (e) {}
+  }
+
+  function calendarUrl(rec) {
+    var base = CONFIG.calendari[rec] || CONFIG.calendari.generale;
+    if (!base) return "";
+    var c = state.contact;
+    var q = "first_name=" + encodeURIComponent(c.nome) + "&last_name=" + encodeURIComponent(c.cognome) +
+      "&email=" + encodeURIComponent(c.email) + "&phone=" + encodeURIComponent(c.telefono);
+    return base + (base.indexOf("?") > -1 ? "&" : "?") + q;
+  }
+
+  function renderResult() {
+    var rec = recommend();
+    var svc = SERVIZI[rec];
+    var payload = buildPayload(rec);
+    send(payload);
+    var cal = calendarUrl(rec);
+    var isCourse = rec === "corsi";
+    var html = '<div class="result">' +
+      '<h3 id="sv-q">Grazie, ' + esc(state.contact.nome) + ".</h3>" +
+      '<div class="rec"><small>' + (state.key === "generale" ? "Il servizio più adatto a te" : "La tua richiesta") + "</small><strong>" + esc(svc.nome) + "</strong><p>" + esc(svc.desc) + "</p></div>";
+    if (isCourse) {
+      html += "<p>Ti abbiamo scritto all'indirizzo " + esc(state.contact.email) + ". Intanto puoi dare un'occhiata ai corsi: se hai dubbi su quale scegliere, possiamo sentirci comunque.</p>";
+    } else {
+      html += "<p>Ora fissa la call conoscitiva: abbiamo già le tue risposte, quindi andiamo dritti al punto.</p>";
+    }
+    html += '<div class="cta-row">';
+    if (cal && !isCourse) html += '<a class="btn btn--lime" href="' + esc(cal) + '" target="_blank" rel="noopener">Scegli giorno e ora <span class="arrow">→</span></a>';
+    else if (!isCourse) html += '<p class="small" style="margin:0;align-self:center"><b>Ti scrivo io entro 24 ore per fissare la call.</b></p>';
+    html += '<a class="btn btn--ghost" href="' + svc.ancora + '" id="sv-goto">' + (isCourse ? "Vai ai corsi" : "Rileggi il servizio") + "</a></div>";
+    html += "<details><summary>Dati inviati a GoHighLevel (anteprima per il setup)</summary><pre>" + esc(JSON.stringify(payload, null, 2)) + "</pre></details></div>";
+    body.innerHTML = html;
+    btnNext.hidden = true;
+    var go = document.getElementById("sv-goto");
+    if (go) go.addEventListener("click", closeSurvey);
+    var h = document.getElementById("sv-q"); if (h) { h.tabIndex = -1; h.focus(); }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!state || state.i >= state.steps.length) return;
+    if (!collect()) return;
+    state.i += 1;
+    render();
+  });
+  btnBack.addEventListener("click", function () {
+    if (state.i > 0) {
+      var st = state.steps[state.i];
+      if (st && st.type === "contact") { try { collect(); } catch (e) {} }
+      state.i -= 1; render();
+    }
+  });
+})();
+</script>
+
+<!-- =====================================================================
+     GHL · MOVIMENTO (GSAP 3.13 + ScrollTrigger + SplitText)
+     Effetti ispirati a React Bits (SplitText, CountUp, Magnet), riscritti in JavaScript semplice.
+     ===================================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* --- La pagina si apre sempre dall'inizio (salvo link con #sezione) --- */
+  var site = document.querySelector(".gc-site") || document.body;
+  function findScroller(el) {
+    // GHL a volte fa scorrere la pagina dentro un suo contenitore invece che nella finestra
+    for (var n = el.parentElement; n && n !== document.body && n !== root; n = n.parentElement) {
+      var oy = getComputedStyle(n).overflowY;
+      if ((oy === "auto" || oy === "scroll") && n.scrollHeight > n.clientHeight + 1) return n;
+    }
+    return null;
+  }
+  var scroller = findScroller(site);
+  if (!location.hash) {
+    try { history.scrollRestoration = "manual"; } catch (e) {}
+    var toTop = function () { window.scrollTo(0, 0); if (scroller) scroller.scrollTop = 0; };
+    toTop(); window.addEventListener("load", toTop);
+  }
+
+  if (!window.gsap || !window.ScrollTrigger || !window.SplitText || !("IntersectionObserver" in window)) { root.classList.remove("js-motion"); return; }
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  if (scroller) ScrollTrigger.defaults({ scroller: scroller });
+  gsap.defaults({ ease: "power3.out", duration: 0.9 });
+
+  /* Comparse affidate a IntersectionObserver: funziona con qualsiasi contenitore di scroll.
+     Niente è nascosto in anticipo: l'animazione parte poco prima che l'elemento entri nello schermo,
+     quindi se qualcosa non scatta l'elemento resta comunque visibile. */
+  function onReveal(targets, play) {
+    var els = gsap.utils.toArray(targets), queue = [], timer = null;
+    if (!els.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { queue.push(en.target); io.unobserve(en.target); } });
+      if (queue.length && !timer) timer = requestAnimationFrame(function () { var b = queue.slice(); queue.length = 0; timer = null; play(b); });
+    }, { rootMargin: "0px 0px 8% 0px", threshold: 0 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  var mm = gsap.matchMedia();
+  mm.add({ motion: "(prefers-reduced-motion: no-preference)", reduce: "(prefers-reduced-motion: reduce)", desktop: "(min-width: 900px) and (pointer: fine)" }, function (ctx) {
+    var c = ctx.conditions;
+    if (!c.motion) {
+      /* "Riduci movimento" attivo: niente spostamenti né rotazioni, solo dissolvenze leggere e i numeri che contano */
+      root.classList.remove("js-motion");
+      var fadeIn = function (els) { gsap.from(els, { autoAlpha: 0, duration: 0.7, ease: "power1.out", stagger: 0.05, clearProps: "opacity,visibility" }); };
+      gsap.from(".hero-photo .photo, .proof-strip", { autoAlpha: 0, duration: 0.9, ease: "power1.out", stagger: 0.15, clearProps: "opacity,visibility" });
+      onReveal("section:not(.hero) .h2, .final .h1, section:not(.hero) .lead, .stop, .deliver > div, .plan, .included > *, .case, .testi, .courses li, .steps li, .flow li, .adv-example, .two-col > .panel, details, .facts > div, .figure .frame, section:not(.hero) .photo--img", fadeIn);
+      var fmtR = function (n) { return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+      document.querySelectorAll("[data-count]").forEach(function (el, i) {
+        var end = +el.getAttribute("data-count"), suf = el.getAttribute("data-suffix") || "", o = { v: 0 };
+        el.textContent = "0" + suf;
+        gsap.to(o, { v: end, duration: 1.6, ease: "power2.out", delay: 0.3 + i * 0.1,
+          onUpdate: function () { el.textContent = fmtR(o.v) + suf; }, onComplete: function () { el.textContent = fmtR(end) + suf; } });
+      });
+      return;
+    }
+
+    var start = function () {
+      /* --- Apertura: titolo riga per riga (SplitText con maschera) --- */
+      var hero = document.querySelector(".hero");
+      var split = SplitText.create(hero.querySelector(".h1"), { type: "lines", mask: "lines", linesClass: "hero-line" });
+      root.classList.remove("js-motion");
+      gsap.timeline({ defaults: { ease: "power4.out" } })
+        .from(".site-header .logo .ast svg", { rotation: -180, scale: 0, duration: 1.1, ease: "back.out(2)", clearProps: "transform" }, 0.05)
+        .from(hero.querySelector(".eyebrow"), { autoAlpha: 0, y: 12, duration: 0.6 }, 0)
+        .from(split.lines, { yPercent: 110, duration: 1.1, stagger: 0.11 }, "-=0.3")
+        .from(hero.querySelector(".lead"), { autoAlpha: 0, y: 18, duration: 0.8 }, "-=0.7")
+        .from(hero.querySelectorAll(".cta-row > *, .hero-note"), { autoAlpha: 0, y: 14, duration: 0.6, stagger: 0.08 }, "-=0.55")
+        .from(hero.querySelector(".hero-photo .photo"), { clipPath: "inset(12% 12% 12% 12% round 28px)", autoAlpha: 0, duration: 1.3, ease: "expo.out" }, 0.25)
+        .from(hero.querySelector(".hero-photo img"), { scale: 1.18, duration: 1.8, ease: "expo.out" }, 0.25);
+
+      /* --- Numeri (CountUp) --- */
+      var fmt = function (n) { return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+      document.querySelectorAll("[data-count]").forEach(function (el, i) {
+        var end = +el.getAttribute("data-count"), suf = el.getAttribute("data-suffix") || "", o = { v: 0 };
+        el.textContent = "0" + suf;
+        gsap.to(o, { v: end, duration: 1.8 + i * 0.2, ease: "expo.out", delay: 0.9 + i * 0.12,
+          onUpdate: function () { el.textContent = fmt(o.v) + suf; }, onComplete: function () { el.textContent = fmt(end) + suf; } });
+      });
+
+      /* --- Titoli di sezione: righe che salgono --- */
+      onReveal("section:not(.hero) .h2, .final .h1", function (els) {
+        els.forEach(function (h) {
+          var sp = SplitText.create(h, { type: "lines", mask: "lines" });
+          gsap.from(sp.lines, { yPercent: 105, duration: 1, stagger: 0.1, ease: "power4.out" });
+        });
+      });
+
+      /* --- Eyebrow, lead, card e liste a cascata --- */
+      onReveal("section:not(.hero) .eyebrow, section:not(.hero) .lead, .svc-tag", function (els) {
+        gsap.from(els, { autoAlpha: 0, y: 20, duration: 0.8, stagger: 0.08, clearProps: "opacity,visibility,transform" });
+      });
+      onReveal(".stop, .deliver > div, .plan, .included > *, .case, .testi, .courses li, .checks li, .steps li, .flow li, .adv-example, .two-col > .panel, details, .facts > div", function (els) {
+        gsap.from(els, { autoAlpha: 0, y: 28, duration: 0.75, stagger: 0.07, clearProps: "opacity,visibility,transform" });
+      });
+
+      /* --- Foto: si scoprono quando entrano e scorrono leggermente (parallasse) --- */
+      onReveal(".figure .frame, section:not(.hero) .photo--img", function (els) {
+        gsap.from(els, { clipPath: "inset(14% 8% 14% 8% round 28px)", duration: 1.2, ease: "expo.out", stagger: 0.1, clearProps: "clipPath" });
+      });
+      gsap.utils.toArray(".figure .frame img, section:not(.hero) .photo--img img").forEach(function (img) {
+        gsap.fromTo(img, { yPercent: -5, scale: 1.12 }, { yPercent: 5, scale: 1.12, ease: "none",
+          scrollTrigger: { trigger: img.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
+      });
+
+      /* --- Barra Tu fai / Noi facciamo --- */
+      onReveal(".spectrum-panel", function () {
+        gsap.from("#bar-us", { scaleX: 0, transformOrigin: "right center", duration: 1.2, ease: "expo.out", clearProps: "transform" });
+      });
+
+      /* --- Pannello servizi: dissolvenza al cambio di livello --- */
+      document.querySelectorAll(".stop").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var img = document.querySelector("[data-sp]:not([hidden])");
+          if (img) gsap.fromTo(img, { autoAlpha: 0, scale: 1.06 }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: "power2.out" });
+          gsap.fromTo("#sp-title, #sp-text", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.05 });
+        });
+      });
+
+      /* --- Asterisco del logo: mezzo giro anche al tocco sui telefoni --- */
+      document.querySelectorAll(".logo .ast svg").forEach(function (svg) {
+        svg.closest(".logo").addEventListener("pointerdown", function (e) {
+          if (e.pointerType === "mouse") return;
+          gsap.fromTo(svg, { rotation: 0 }, { rotation: 360, duration: 0.9, ease: "back.out(2)", clearProps: "transform" });
+        });
+      });
+
+      /* --- Pulsanti magnetici (Magnet), solo con mouse --- */
+      if (c.desktop) {
+        document.querySelectorAll("[data-magnet]").forEach(function (btn) {
+          var xTo = gsap.quickTo(btn, "x", { duration: 0.5, ease: "power3" }), yTo = gsap.quickTo(btn, "y", { duration: 0.5, ease: "power3" });
+          btn.addEventListener("pointermove", function (e) {
+            var r = btn.getBoundingClientRect();
+            xTo((e.clientX - (r.left + r.width / 2)) * 0.25); yTo((e.clientY - (r.top + r.height / 2)) * 0.35);
+          });
+          btn.addEventListener("pointerleave", function () { xTo(0); yTo(0); });
+        });
+      }
+
+      ScrollTrigger.refresh();
+      window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+    };
+
+    if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(start); else start();
+  });
+})();
+</script>
+

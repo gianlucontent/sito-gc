@@ -1,0 +1,669 @@
+<!-- Banner cookie iubenda (codice fornito da Gianluca). Se lo hai già in
+     Settings > Tracking Code del sito GHL, cancella questo blocco per non caricarlo due volte. -->
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"enableTcf":true,"googleAdditionalConsentMode":true,"perPurposeConsent":true,"siteId":2130705,"tcfPurposes":{"2":"consent_only","7":"consent_only","8":"consent_only","9":"consent_only","10":"consent_only","11":"consent_only"},"cookiePolicyId":35480411,"lang":"it","banner":{"acceptButtonCaptionColor":"#010101","acceptButtonColor":"#ffd900","acceptButtonDisplay":true,"backgroundColor":"#000001","closeButtonRejects":true,"customizeButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonDisplay":true,"explicitWithdrawal":true,"listPurposes":true,"position":"bottom","textColor":"#ffffff"}};
+</script>
+<script type="text/javascript" src="//cs.iubenda.com/sync/2130705.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/safe-tcf-v2.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+<meta name="description" content="Brief per una formazione AI su misura: raccontami chi sei, cosa vuoi ottenere e da dove parti.">
+<meta name="robots" content="noindex">
+
+<!-- =====================================================================
+     GHL · HEAD (font)
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Roboto+Condensed:wght@400..900&family=Space+Grotesk:wght@400..700&display=swap">
+
+<style>
+/* Layout: una colonna di lettura (max 760px) su fondo Ink; a sinistra su desktop l'indice delle sezioni.
+   Il brief procede per sezioni; le domande cambiano in base alle risposte precedenti. */
+:root {
+  --ink: #100B18;
+  --warm-white: #FAF7FF;
+  --purple: #7433D6;
+  --lime: #DFFF00;
+  --orange: #FF7A2A;
+  --night: #21152F;
+  --lavender: #C4A1FF;
+  --muted: #C5BCCE;
+  --line-dark: rgba(250, 247, 255, 0.12);
+  --glass: rgba(33, 21, 47, 0.72);
+  --error: #FFB38A;
+
+  --f-display: "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-accent: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+
+  --r-ctrl: 12px;
+  --r-card: 18px;
+  --gutter: clamp(16px, 4vw, 40px);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--ink); color: var(--warm-white); font-family: var(--f-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--ink); }
+[hidden] { display: none !important; }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+:where(a, button, input, textarea, select, [tabindex]):focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; box-shadow: 0 0 0 6px var(--ink); }
+
+/* Header */
+.site-header {
+  position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: var(--glass); border-bottom: 1px solid var(--line-dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+.logo { font-family: var(--f-display); font-weight: 800; font-size: 26px; letter-spacing: -0.03em; text-decoration: none; color: var(--warm-white); white-space: nowrap; line-height: 1; }
+.logo .co { color: var(--orange); }
+.logo .ast { display: inline-block; width: 0.6em; height: 0.6em; margin-left: 0.07em; vertical-align: 0.62em; color: var(--lime); line-height: 0; }
+.logo .ast svg { width: 100%; height: 100%; display: block; overflow: visible; transition: transform .7s cubic-bezier(.2, .8, .2, 1); }
+.logo .ast path { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; }
+.logo:hover .ast svg, .logo:focus-visible .ast svg { transform: rotate(360deg); }
+@media (prefers-reduced-motion: reduce) { .logo .ast svg { transition: none; } .logo:hover .ast svg { transform: none; } }
+.back { font-family: var(--f-display); font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--warm-white); }
+
+/* Intro */
+.intro { padding-block: clamp(40px, 7vw, 80px) clamp(28px, 4vw, 40px); position: relative; overflow: hidden; }
+.intro::after { content: ""; position: absolute; width: 640px; height: 640px; right: -240px; top: -260px; background: radial-gradient(circle, rgba(116,51,214,0.38), rgba(116,51,214,0) 65%); pointer-events: none; }
+.intro .wrap { position: relative; z-index: 1; display: grid; gap: 18px; max-width: 1120px; }
+.eyebrow { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.h1 { font-size: clamp(44px, 7vw, 92px); font-weight: 870; line-height: 0.93; letter-spacing: -0.04em; text-transform: uppercase; max-width: 14ch; }
+.accent { font-family: var(--f-accent); font-style: italic; font-weight: 500; text-transform: none; letter-spacing: -0.01em; color: var(--lavender); }
+.lead { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.45; color: var(--muted); max-width: 56ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.facts span { border: 1px solid var(--line-dark); border-radius: 999px; padding: 7px 13px; font-size: 14px; color: var(--muted); }
+.facts b { color: var(--warm-white); font-weight: 600; }
+
+/* Area brief */
+.brief { padding-block: 8px clamp(64px, 8vw, 96px); }
+.brief .wrap { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 860px) { .brief .wrap { grid-template-columns: 1fr; } }
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: t; }
+.toc li { counter-increment: t; display: grid; grid-template-columns: 30px 1fr; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 10px; color: var(--muted); font-size: 15px; }
+.toc li::before { content: counter(t); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 13px; border: 1px solid var(--line-dark); }
+.toc li.done { color: var(--warm-white); }
+.toc li.done::before { content: "✓"; background: var(--purple); border-color: var(--purple); color: var(--warm-white); }
+.toc li.current { background: var(--night); color: var(--warm-white); }
+.toc li.current::before { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+.toc li.skip { opacity: 0.4; text-decoration: line-through; }
+@media (max-width: 860px) { .toc { display: none; } }
+.mobile-progress { display: none; gap: 8px; }
+@media (max-width: 860px) { .mobile-progress { display: grid; } }
+.mobile-progress .bar { height: 6px; background: rgba(250,247,255,0.10); border-radius: 6px; overflow: hidden; }
+.mobile-progress .bar i { display: block; height: 100%; background: var(--lime); width: 0; transition: width .3s ease; }
+.mobile-progress span { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); }
+
+.card { background: var(--night); border: 1px solid var(--line-dark); border-radius: var(--r-card); padding: clamp(20px, 3.4vw, 40px); display: grid; gap: 30px; min-width: 0; }
+#secBody { display: grid; gap: 34px; min-width: 0; }
+.sec-head { display: grid; gap: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line-dark); padding-bottom: 22px; }
+.sec-head small { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); }
+.sec-head h2 { font-size: clamp(30px, 3.6vw, 42px); font-weight: 820; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; }
+.sec-head p { color: var(--muted); font-size: 16px; max-width: 58ch; }
+
+.q { display: grid; gap: 12px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.q legend, .q > label.ql { padding: 0; font-family: var(--f-display); font-weight: 760; font-size: clamp(20px, 2vw, 23px); line-height: 1.2; letter-spacing: -0.01em; }
+.q .hint { color: var(--muted); font-size: 14px; margin-top: -6px; }
+.req { color: var(--lime); }
+.opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.opts.one { grid-template-columns: 1fr; }
+@media (max-width: 560px) { .opts { grid-template-columns: 1fr; } }
+.opt { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; cursor: pointer; border: 1px solid var(--line-dark); border-radius: var(--r-ctrl); padding: 13px 15px; background: rgba(16,11,24,0.45); transition: border-color .15s ease, background .15s ease; }
+.opt:hover { border-color: var(--lavender); }
+.opt input { appearance: none; width: 20px; height: 20px; margin: 2px 0 0; border: 2px solid var(--muted); border-radius: 50%; display: grid; place-items: center; flex: none; }
+.opt input[type="checkbox"] { border-radius: 6px; }
+.opt input:checked { border-color: var(--lime); background: var(--lime); }
+.opt input:checked::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+.opt input[type="checkbox"]:checked::after { width: 10px; height: 6px; border-radius: 0; background: none; border-left: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); transform: rotate(-45deg) translate(1px, -1px); }
+.opt:has(input:checked) { border-color: var(--lime); background: rgba(223,255,0,0.06); }
+.opt span { line-height: 1.4; }
+.opt small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field textarea, .other-input {
+  font: inherit; color: var(--warm-white); background: rgba(16,11,24,0.55); border: 1px solid var(--line-dark); border-radius: var(--r-ctrl); padding: 13px 14px; min-height: 50px; width: 100%;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.fields-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .fields-2 { grid-template-columns: 1fr; } }
+.consent { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.45; align-items: start; cursor: pointer; }
+.consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--lime); }
+.q-err { color: var(--error); font-size: 14px; }
+.q.invalid .opt, .q.invalid input[type="text"], .q.invalid textarea { border-color: var(--error); }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid var(--line-dark); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: var(--r-ctrl); font-family: var(--f-display); font-weight: 760; font-size: 17px; letter-spacing: 0.01em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: transform .18s ease, background .18s ease; }
+.btn:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .btn, .btn:hover { transition: none; transform: none; } }
+.btn--lime { background: var(--lime); color: var(--ink); }
+.btn--lime:hover { background: #ECFF5C; }
+.btn--ghost { background: transparent; color: var(--warm-white); border-color: currentColor; }
+.saved { font-size: 13px; color: var(--muted); }
+
+/* ---------- Box del brief a contrasto: bianco caldo su fondo Ink ---------- */
+.card {
+  --c-bg: #FFFDF8; --c-text: #100B18; --c-soft: #4B3F5A; --c-line: rgba(16, 11, 24, 0.14);
+  --c-opt: #F6F1FB; --c-opt-hover: #EDE3FA; --c-sel: #EAE0F8; --c-accent: #7433D6; --c-err: #B4440F;
+  background: var(--c-bg); color: var(--c-text); border: 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(196, 161, 255, 0.25);
+}
+.card .sec-head small { color: var(--c-accent); }
+.card .sec-head h2 { color: var(--c-text); }
+.card .sec-head p, .card .q .hint, .card .field label, .card .consent, .card .opt small, .card .saved { color: var(--c-soft); }
+.card .sec-head { border-bottom-color: var(--c-line); }
+.card .req { color: var(--c-accent); }
+.card .q legend, .card .q > label.ql { color: var(--c-text) !important; }
+.card .opt { background: var(--c-opt); border-color: transparent; color: var(--c-text); }
+.card .opt:hover { background: var(--c-opt-hover); border-color: rgba(116, 51, 214, 0.35); }
+.card .opt input { border-color: #8C7FA0; }
+.card .opt input:checked { border-color: var(--c-accent); background: var(--c-accent); }
+.card .opt input:checked::after { background: #FFFDF8; }
+.card .opt input[type="checkbox"]:checked::after { background: none; border-color: #FFFDF8; }
+.card .opt:has(input:checked) { border-color: var(--c-accent); background: var(--c-sel); box-shadow: inset 0 0 0 1px var(--c-accent); }
+.card .field input[type="text"], .card .field input[type="email"], .card .field input[type="tel"], .card .field textarea, .card .other-input {
+  background: #FFFFFF; color: var(--c-text); border: 1px solid var(--c-line);
+}
+.card .field input::placeholder, .card .field textarea::placeholder, .card .other-input::placeholder { color: #8C7FA0; }
+.card .consent input { accent-color: var(--c-accent); }
+.card .consent a { color: var(--c-accent); }
+.card .q-err { color: var(--c-err); }
+.card .q.invalid .opt, .card .q.invalid input[type="text"], .card .q.invalid textarea { border-color: var(--c-err); }
+.card .nav-row { border-top-color: var(--c-line); }
+.card .btn--ghost { color: var(--c-text); }
+.card .btn--lime { box-shadow: inset 0 0 0 2px rgba(16, 11, 24, 0.85); }
+.card .mobile-progress span { color: var(--c-accent); }
+.card .mobile-progress .bar { background: var(--c-opt); }
+.card .mobile-progress .bar i { background: var(--c-accent); }
+.card .next-steps li { border-top-color: var(--c-line); color: var(--c-soft); }
+.card .next-steps li::before { color: var(--c-accent); }
+.card .next-steps b, .card .done-card .sec-head p.big { color: var(--c-text); }
+.card :where(a, button, input, textarea, select, [tabindex]):focus-visible { outline-color: var(--c-accent); box-shadow: 0 0 0 6px #FFFDF8; }
+
+.done-card { text-align: left; }
+.done-card .sec-head { border-bottom: 0; padding-bottom: 0; }
+.done-card .sec-head p.big { color: var(--warm-white); }
+.done-card .big { font-family: var(--f-display); font-weight: 870; font-size: clamp(40px, 6vw, 68px); line-height: 0.95; letter-spacing: -0.035em; text-transform: uppercase; }
+.next-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: n; }
+.next-steps li { counter-increment: n; display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line-dark); color: var(--muted); }
+.next-steps li::before { content: counter(n, decimal-leading-zero); font-family: var(--f-display); font-weight: 850; font-size: 26px; color: var(--lime); line-height: 1; }
+.next-steps b { color: var(--warm-white); font-weight: 600; display: block; }
+.todo { display: inline-block; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--lavender); border-radius: 6px; padding: 2px 8px; }
+
+.site-footer { border-top: 1px solid var(--line-dark); padding-block: 28px; color: var(--muted); font-size: 13px; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { color: var(--warm-white); text-decoration: underline; }
+.done-note { margin: 0; align-self: center; font-weight: 600; color: var(--c-ink, #100B18); }
+
+/* GHL: il sito esce dal contenitore centrato e occupa tutta la larghezza dello schermo */
+.gc-site {
+  position: relative; width: 100vw; max-width: 100vw;
+  margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important;
+  background: var(--ink); color: var(--warm-white); font-family: var(--f-body);
+  font-size: 17px; line-height: 1.6; overflow-x: clip;
+}
+/* Un solo livello di scroll: solo il body taglia l'eccesso laterale, senza diventare un secondo contenitore */
+html { background: var(--ink) !important; overflow: visible !important; }
+body { background: var(--ink) !important; overflow-x: clip !important; overflow-y: visible !important; }
+/* GHL: contenitori di sezione, riga e colonna senza limiti né padding */
+.c-section, .c-row, .c-column, .c-wrapper, .c-custom-code,
+.c-section > .inner, .c-row > .inner, .c-column > .inner,
+.fullSection, .fullContainer, .container, .inner {
+  max-width: none !important; padding: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; background: transparent !important;
+}
+</style>
+
+<div class="gc-site">
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" data-link="home" aria-label="GianluContent, vai al sito">gianlu<span class="co">co</span>ntent<span class="ast" aria-hidden="true"><svg viewBox="-12 -12 24 24" overflow="visible" focusable="false"><path style="fill:currentColor;stroke:none" d="M9.44 -2.62 9.77 -2.98 9.91 -3.18 10.13 -3.62 10.26 -4.09 10.29 -4.58 10.22 -5.07 10.07 -5.53 9.82 -5.96 9.67 -6.15 9.31 -6.48 8.90 -6.74 8.44 -6.91 8.20 -6.97 7.71 -7.00 7.46 -6.98 6.99 -6.87 6.54 -6.66 2.50 -4.33 2.49 -9.25 2.45 -9.49 2.31 -9.96 2.08 -10.39 1.77 -10.77 1.39 -11.08 .96 -11.31 .49 -11.45 .25 -11.49 -.25 -11.49 -.49 -11.45 -.96 -11.31 -1.39 -11.08 -1.77 -10.77 -1.93 -10.59 -2.20 -10.18 -2.31 -9.96 -2.45 -9.49 -2.49 -9.25 -2.50 -4.33 -.38 -3.08 .19 -2.58 .64 -1.98 .97 -1.30 1.08 -.94 1.20 -.19 1.20 .19 1.08 .94 .82 1.65 .43 2.29 -.09 2.85 -.38 3.08 -2.50 4.33 -2.49 9.25 -2.39 9.73 -2.20 10.18 -1.93 10.59 -1.59 10.93 -1.18 11.20 -.96 11.31 -.49 11.45 .00 11.50 .49 11.45 .96 11.31 1.39 11.08 1.77 10.77 2.08 10.39 2.31 9.96 2.45 9.49 2.49 9.25 2.50 4.33 6.54 6.66 6.76 6.78 7.22 6.93 7.71 7.00 7.95 6.99 8.44 6.91 8.67 6.84 9.11 6.62 9.31 6.48 9.67 6.15 9.95 5.75 10.16 5.30 10.22 5.07 10.29 4.58 10.26 4.09 10.13 3.62 9.91 3.18 9.77 2.98 9.44 2.62 9.04 2.34 5.00 0 9.04 -2.34ZM-7.60 .00 -11.85 2.47 -12.22 2.79 -12.51 3.18 -12.73 3.62 -12.86 4.09 -12.89 4.58 -12.82 5.07 -12.67 5.53 -12.42 5.96 -12.10 6.33 -11.71 6.62 -11.27 6.84 -11.04 6.91 -10.55 6.99 -10.31 7.00 -9.82 6.93 -9.36 6.78 -9.14 6.66 -1.14 2.03 -.77 1.70 -.61 1.51 -.35 1.08 -.18 .62 -.10 .12 -.13 -.37 -.18 -.62 -.25 -.85 -.47 -1.30 -.61 -1.51 -.95 -1.87 -1.35 -2.16 -9.36 -6.78 -9.82 -6.93 -10.31 -7.00 -10.55 -6.99 -11.04 -6.91 -11.27 -6.84 -11.71 -6.62 -12.10 -6.33 -12.42 -5.96 -12.67 -5.53 -12.82 -5.07 -12.89 -4.58 -12.86 -4.09 -12.73 -3.62 -12.51 -3.18 -12.22 -2.79 -11.85 -2.47Z"/></svg></span></a>
+    <a class="back" href="#" data-link="home">← Torna al sito</a>
+  </div>
+</header>
+
+<div aria-hidden="true" style="height:72px"></div>
+<main>
+<section class="intro" aria-labelledby="intro-title">
+  <div class="wrap">
+    <span class="eyebrow">Formazione su misura · Brief</span>
+    <h1 class="h1" id="intro-title">La formazione giusta parte <span class="accent">dalle domande giuste.</span></h1>
+    <p class="lead">Raccontami chi sei, cosa vuoi ottenere e da dove parti. Dopo la nostra call, queste risposte mi servono per costruire la proposta sul tuo caso, non su un pacchetto standard.</p>
+    <div class="facts"><span><b>8-10 minuti</b></span><span>Domande che cambiano in base alle risposte</span><span>Le risposte restano salvate su questo dispositivo</span></div>
+  </div>
+</section>
+
+<section class="brief" aria-label="Brief formazione">
+  <div class="wrap">
+    <ol class="toc" id="toc" aria-label="Sezioni del brief"></ol>
+    <form class="card" id="briefForm" novalidate>
+      <div class="mobile-progress" aria-hidden="true"><span id="mp-label">Sezione 1 di 7</span><div class="bar"><i id="mp-bar"></i></div></div>
+      <div id="secBody"></div>
+      <div class="nav-row" id="navRow">
+        <button class="btn btn--ghost" type="button" id="btnBack">Indietro</button>
+        <span class="saved" id="savedNote" aria-live="polite"></span>
+        <button class="btn btn--lime" type="submit" id="btnNext">Avanti <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>GianluContent è un marchio di G.Solutions di Gianluca Giannini · P.IVA 08280050728</span>
+    <span><a href="#" data-link="privacy">Privacy policy</a> · <a href="#" data-link="cookie">Cookie policy</a></span>
+  </div>
+</footer>
+
+</div><!-- /gc-site -->
+
+<!-- =====================================================================
+     GHL · JS GLOBALE
+     ===================================================================== -->
+<script>
+(function () {
+  /* ---------- CONFIGURAZIONE ---------- */
+  var CONFIG = {
+    ghlWebhookUrl: "https://services.leadconnectorhq.com/hooks/QDZvsEZK4V1jvvrMf1cx/webhook-trigger/62c6ec14-3198-4669-a83c-62279ea7d821",
+    link: {
+      home: "https://gianlucontent.com",
+      privacy: "https://www.iubenda.com/privacy-policy/35480411",
+      cookie: "https://www.iubenda.com/privacy-policy/35480411/cookie-policy"
+    }
+  };
+  var STORE_KEY = "gc-brief-formazione-v1";
+
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var url = CONFIG.link[a.getAttribute("data-link")];
+    if (url) a.href = url;
+  });
+
+  /* ---------- Domande ----------
+     type: single | multi | text | textarea | contact
+     when(a): la domanda compare solo se restituisce true (a = risposte date finora)
+     other: aggiunge l'opzione "Altro" con campo libero */
+  var isOrg = function (a) { return a.richiedente && a.richiedente !== "Un singolo professionista"; };
+  var isAgency = function (a) { return a.richiedente === "Un'agenzia di marketing o comunicazione"; };
+  var has = function (a, id, v) { return [].concat(a[id] || []).indexOf(v) > -1; };
+
+  var SCOPI = {
+    contenuti: "Creare contenuti social con l'AI (testi, immagini, caroselli)",
+    video: "Video AI e avatar",
+    automaContenuti: "Automatizzare la produzione dei contenuti",
+    agent: "Creare agenti o assistenti AI su misura",
+    marketing: "Automazioni di marketing e vendita (CRM, email, chatbot nei DM)",
+    organizzazione: "Organizzazione e produttività interna (documenti, riunioni, procedure)",
+    clienti: "Offrire servizi basati sull'AI ai miei clienti"
+  };
+
+  var SECTIONS = [
+    { id: "chi", title: "Chi sei", intro: "Partiamo dal contesto: mi serve per capire con chi parlo e in che realtà si inserisce la formazione.",
+      questions: [
+        { id: "richiedente", q: "Chi richiede la formazione?", type: "single", req: true, opts: [
+          { l: "Un singolo professionista", h: "Freelance, consulente, imprenditore" },
+          { l: "Un'azienda o un team" },
+          { l: "Un'agenzia di marketing o comunicazione" },
+          { l: "Un ente, una scuola o un'associazione" } ] },
+        { id: "azienda", q: "Nome dell'azienda o della realtà", type: "text", req: true, when: isOrg, ph: "Es. Studio Rossi Comunicazione" },
+        { id: "settore", q: "Di cosa ti occupi?", type: "text", req: true, ph: "Settore, servizi principali, tipo di clienti" },
+        { id: "dimensione", q: "Quante persone lavorano nella tua realtà?", type: "single", req: true, when: isOrg, opts: [
+          { l: "Da 2 a 10" }, { l: "Da 11 a 50" }, { l: "Da 51 a 200" }, { l: "Oltre 200" } ] },
+        { id: "ruolo", q: "Qual è il tuo ruolo?", type: "single", req: true, when: isOrg, other: true, opts: [
+          { l: "Titolare o socio" }, { l: "Responsabile di area o team" }, { l: "HR o responsabile formazione" } ] },
+        { id: "professione", q: "Come lavori oggi?", type: "single", req: true, when: function (a) { return a.richiedente === "Un singolo professionista"; }, opts: [
+          { l: "Freelance o libero professionista" }, { l: "Imprenditore con una piccola attività" }, { l: "Dipendente che vuole crescere" }, { l: "Creator o formatore" } ] }
+      ] },
+    { id: "team", title: "Il team da formare", intro: "Chi parteciperà alla formazione: numero, ruoli e livello di partenza.", when: isOrg,
+      questions: [
+        { id: "partecipanti", q: "Quante persone parteciperanno?", type: "single", req: true, opts: [
+          { l: "Da 1 a 3" }, { l: "Da 4 a 8" }, { l: "Da 9 a 15" }, { l: "Da 16 a 30" }, { l: "Oltre 30" }, { l: "Non lo sappiamo ancora" } ] },
+        { id: "ruoli", q: "Quali ruoli sono coinvolti?", type: "multi", req: true, hint: "Puoi sceglierne più di uno.", other: true, opts: [
+          { l: "Social media e content" }, { l: "Copywriting" }, { l: "Grafica e video" }, { l: "Advertising e performance" },
+          { l: "Account e project management" }, { l: "Commerciale e vendite" }, { l: "Assistenza clienti" },
+          { l: "Amministrazione e operations" }, { l: "Direzione" } ] },
+        { id: "omogeneita", q: "Il livello dei partecipanti con l'AI è simile?", type: "single", req: true, opts: [
+          { l: "Sì, più o meno tutti allo stesso livello" },
+          { l: "No, ci sono livelli molto diversi", h: "Potrebbe servire dividere in gruppi" },
+          { l: "Non lo so" } ] }
+      ] },
+    { id: "obiettivi", title: "Per cosa serve", intro: "Cosa vuoi saper fare alla fine della formazione e perché adesso.",
+      questions: [
+        { id: "scopi", q: "Su cosa vuoi lavorare?", type: "multi", req: true, hint: "Scegli tutto quello che ti interessa, nella prossima sezione approfondiamo.", other: true,
+          opts: Object.keys(SCOPI).filter(function (k) { return k !== "clienti"; }).map(function (k) { return { l: SCOPI[k] }; })
+            .concat([{ l: SCOPI.clienti, when: isAgency }]) },
+        { id: "priorita", q: "Se dovessi sceglierne uno solo, quale?", type: "single", req: true, dynamicFrom: "scopi" },
+        { id: "obiettivo", q: "Qual è il risultato principale che ti aspetti?", type: "single", req: true, other: true, opts: [
+          { l: "Risparmiare tempo sulle attività ripetitive" }, { l: "Produrre più contenuti a parità di persone" },
+          { l: "Alzare la qualità del lavoro" }, { l: "Creare un nuovo servizio da vendere" },
+          { l: "Ridurre costi esterni (fornitori, freelance)" }, { l: "Rendere il team autonomo sugli strumenti AI" } ] },
+        { id: "problema", q: "Qual è oggi il problema più concreto che vuoi risolvere?", type: "textarea", req: true, ph: "Es. ogni settimana perdo due giorni a scrivere i piani editoriali dei clienti" },
+        { id: "successo", q: "Tra tre mesi, come capirai che la formazione ha funzionato?", type: "textarea", req: false, ph: "Es. ogni persona del team produce i propri caroselli in metà tempo" }
+      ] },
+    { id: "dettagli", title: "Approfondimento", intro: "Qualche domanda in più sui temi che hai scelto, per costruire esercizi sui tuoi casi reali.",
+      when: function (a) { return has(a, "scopi", SCOPI.agent) || has(a, "scopi", SCOPI.contenuti) || has(a, "scopi", SCOPI.automaContenuti) || has(a, "scopi", SCOPI.video) || has(a, "scopi", SCOPI.marketing) || isAgency(a); },
+      questions: [
+        { id: "agent_compito", q: "Cosa dovrebbe fare l'agente o l'assistente AI?", type: "textarea", req: true, when: function (a) { return has(a, "scopi", SCOPI.agent); }, ph: "Es. rispondere alle richieste dei clienti, preparare preventivi, scrivere report mensili, fare ricerca" },
+        { id: "agent_dati", q: "Su quali informazioni dovrebbe basarsi?", type: "multi", req: false, when: function (a) { return has(a, "scopi", SCOPI.agent); }, other: true, opts: [
+          { l: "Documenti e procedure interne" }, { l: "Listini e cataloghi" }, { l: "Storico dei clienti" }, { l: "Sito e materiali pubblici" }, { l: "Email e conversazioni" } ] },
+        { id: "contenuti_canali", q: "Su quali canali pubblichi?", type: "multi", req: true, when: function (a) { return has(a, "scopi", SCOPI.contenuti) || has(a, "scopi", SCOPI.automaContenuti) || has(a, "scopi", SCOPI.video); }, other: true, opts: [
+          { l: "Instagram" }, { l: "TikTok" }, { l: "YouTube" }, { l: "LinkedIn" }, { l: "Facebook" }, { l: "Blog e sito" }, { l: "Newsletter" } ] },
+        { id: "contenuti_volume", q: "Quanti contenuti produci al mese, più o meno?", type: "single", req: true, when: function (a) { return has(a, "scopi", SCOPI.contenuti) || has(a, "scopi", SCOPI.automaContenuti) || has(a, "scopi", SCOPI.video); }, opts: [
+          { l: "Meno di 10" }, { l: "Da 10 a 30" }, { l: "Da 30 a 100" }, { l: "Oltre 100", h: "Tipico di un'agenzia con più clienti" } ] },
+        { id: "volto", q: "Nei video ci metti la faccia?", type: "single", req: false, when: function (a) { return has(a, "scopi", SCOPI.video); }, opts: [
+          { l: "Sì" }, { l: "No, mi interessano gli avatar AI" }, { l: "Dipende dal cliente o dal progetto" } ] },
+        { id: "marketing_strumenti", q: "Quali strumenti di marketing usi già?", type: "multi", req: false, when: function (a) { return has(a, "scopi", SCOPI.marketing); }, other: true, opts: [
+          { l: "GoHighLevel" }, { l: "HubSpot" }, { l: "ActiveCampaign o Mailchimp" }, { l: "ManyChat" }, { l: "Make, Zapier o n8n" }, { l: "Nessuno" } ] },
+        { id: "agenzia_clienti", q: "Quanti clienti gestisci in contemporanea?", type: "single", req: true, when: isAgency, opts: [
+          { l: "Meno di 5" }, { l: "Da 5 a 15" }, { l: "Da 16 a 40" }, { l: "Oltre 40" } ] },
+        { id: "agenzia_uso", q: "Come vuoi usare l'AI rispetto ai tuoi clienti?", type: "single", req: true, when: isAgency, opts: [
+          { l: "Solo internamente, per lavorare più velocemente" },
+          { l: "Anche per vendere nuovi servizi ai clienti" },
+          { l: "Voglio insegnarla anche ai miei clienti" } ] }
+      ] },
+    { id: "livello", title: "Da dove parti", intro: "Il livello attuale mi serve per non annoiare chi è avanti e non perdere chi parte da zero.",
+      questions: [
+        { id: "livello", q: "Come descriveresti il livello attuale con l'AI?", type: "single", req: true, opts: [
+          { l: "Base", h: "Uso poco o niente ChatGPT e strumenti simili" },
+          { l: "Intermedio", h: "La uso ogni giorno, ma senza un metodo preciso" },
+          { l: "Avanzato", h: "Ho già workflow e prompt strutturati" },
+          { l: "Esperto", h: "Uso automazioni, agenti o API" } ] },
+        { id: "strumenti", q: "Quali strumenti usi già?", type: "multi", req: true, hint: "Anche solo occasionalmente.", other: true, opts: [
+          { l: "ChatGPT" }, { l: "Claude" }, { l: "Gemini" }, { l: "Copilot" }, { l: "Midjourney o altri generatori di immagini" },
+          { l: "Video AI (Higgsfield, HeyGen, Runway…)" }, { l: "Canva o CapCut" }, { l: "Make, Zapier o n8n" }, { l: "Nessuno" } ] },
+        { id: "abbonamenti", q: "Hai abbonamenti a pagamento a strumenti AI?", type: "single", req: true, opts: [
+          { l: "Sì, aziendali per tutto il team" }, { l: "Sì, ma solo personali" }, { l: "No, uso solo versioni gratuite" } ] },
+        { id: "vincoli", q: "Ci sono vincoli su dati o strumenti?", type: "single", req: true, opts: [
+          { l: "Nessun vincolo particolare" },
+          { l: "Tratto dati sensibili di clienti", h: "Serve attenzione su privacy e strumenti da usare" },
+          { l: "C'è una policy aziendale sull'AI da rispettare" },
+          { l: "Non lo so" } ] }
+      ] },
+    { id: "formato", title: "Formato e tempi", intro: "Come, quando e con che budget. Nessun impegno: mi serve per proporti un formato realistico.",
+      questions: [
+        { id: "modalita", q: "Dove preferisci fare la formazione?", type: "single", req: true, opts: [
+          { l: "Online, in diretta" }, { l: "In presenza" }, { l: "Misto" }, { l: "Indifferente" } ] },
+        { id: "citta", q: "In quale città?", type: "text", req: true, when: function (a) { return a.modalita === "In presenza" || a.modalita === "Misto"; }, ph: "Es. Milano" },
+        { id: "struttura", q: "Che struttura ti è più comoda?", type: "single", req: true, opts: [
+          { l: "Una o due giornate intensive" }, { l: "Più sessioni brevi distribuite nel tempo" }, { l: "Consigliami tu" } ] },
+        { id: "disponibilita", q: "In quali momenti sei disponibile?", type: "multi", req: true, opts: [
+          { l: "Mattina" }, { l: "Pomeriggio" }, { l: "Sera" }, { l: "Weekend" } ] },
+        { id: "inizio", q: "Quando vorresti iniziare?", type: "single", req: true, opts: [
+          { l: "Entro 2 settimane" }, { l: "Entro un mese" }, { l: "Tra 1 e 3 mesi" }, { l: "Da definire" } ] },
+        { id: "materiali", q: "Cosa vorresti avere alla fine?", type: "multi", req: false, opts: [
+          { l: "Registrazioni delle sessioni" }, { l: "Slide e dispense" }, { l: "Libreria di prompt e template" },
+          { l: "Workflow già configurati sui miei strumenti" }, { l: "Supporto dopo la formazione" }, { l: "Attestato di partecipazione" } ] },
+        { id: "budget", q: "Che budget hai in mente?", type: "single", req: true, hint: "Mi serve solo per proporti un formato sostenibile.", opts: [
+          { l: "Fino a 1.000 €" }, { l: "Da 1.000 a 2.500 €" }, { l: "Da 2.500 a 5.000 €" }, { l: "Da 5.000 a 10.000 €" }, { l: "Oltre 10.000 €" }, { l: "Da definire insieme" } ] },
+        { id: "fondi", q: "Ti interessa finanziare la formazione con i fondi interprofessionali?", type: "single", req: false, when: isOrg, opts: [
+          { l: "Sì" }, { l: "No" }, { l: "Non so cosa siano" } ] }
+      ] },
+    { id: "contatti", title: "I tuoi contatti", intro: "Ultimo passo: dove ti mando la proposta.",
+      questions: [ { id: "contatto", type: "contact" } ] }
+  ];
+
+  /* ---------- Stato ---------- */
+  var state = { i: 0, a: {}, contact: {} };
+  try { var saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (saved && saved.a) state = saved; } catch (e) {}
+  // Precompilazione dai parametri dell'URL (es. dal sito: ?nome=&email=&azienda=)
+  try {
+    var qp = new URLSearchParams(location.search);
+    ["nome", "cognome", "email", "telefono"].forEach(function (k) { if (qp.get(k) && !state.contact[k]) state.contact[k] = qp.get(k); });
+    if (qp.get("azienda") && !state.a.azienda) state.a.azienda = qp.get("azienda");
+  } catch (e) {}
+  function persist() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); document.getElementById("savedNote").textContent = "Risposte salvate su questo dispositivo"; } catch (e) {} }
+
+  var form = document.getElementById("briefForm");
+  var body = document.getElementById("secBody");
+  var btnNext = document.getElementById("btnNext");
+  var btnBack = document.getElementById("btnBack");
+  var toc = document.getElementById("toc");
+
+  function visibleSections() { return SECTIONS.filter(function (s) { return !s.when || s.when(state.a); }); }
+  function visibleQuestions(s) { return s.questions.filter(function (q) { return !q.when || q.when(state.a); }); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function optionsFor(q) {
+    if (q.dynamicFrom) {
+      var src = [].concat(state.a[q.dynamicFrom] || []);
+      return src.map(function (v) { return { l: v }; });
+    }
+    return q.opts.filter(function (o) { return !o.when || o.when(state.a); });
+  }
+
+  function renderToc() {
+    var vis = visibleSections();
+    toc.innerHTML = SECTIONS.map(function (s) {
+      var idx = vis.indexOf(s);
+      var cls = idx === -1 ? "skip" : idx < state.i ? "done" : idx === state.i ? "current" : "";
+      return '<li class="' + cls + '"' + (idx === state.i ? ' aria-current="step"' : "") + "><span>" + esc(s.title) + "</span></li>";
+    }).join("");
+    document.getElementById("mp-label").textContent = "Sezione " + (state.i + 1) + " di " + vis.length + " · " + vis[state.i].title;
+    document.getElementById("mp-bar").style.width = Math.round(((state.i + 1) / vis.length) * 100) + "%";
+  }
+
+  function renderQuestion(q) {
+    var id = "q-" + q.id;
+    if (q.type === "contact") {
+      var c = state.contact;
+      return '<div class="q" data-q="contatto"><div class="fields-2">' +
+        field("nome", "Nome", "text", c.nome, "given-name") + field("cognome", "Cognome", "text", c.cognome, "family-name") + "</div>" +
+        '<div class="fields-2">' + field("email", "Email", "email", c.email, "email") + field("telefono", "Telefono", "tel", c.telefono, "tel") + "</div>" +
+        '<div class="field"><label for="f-note">Vuoi aggiungere qualcosa? (facoltativo)</label><textarea id="f-note">' + esc(c.note) + "</textarea></div>" +
+        '<label class="consent"><input type="checkbox" id="f-privacy"' + (c.privacy ? " checked" : "") + '><span>Ho letto la <a href="' + esc(CONFIG.link.privacy) + '" target="_blank" rel="noopener">privacy policy</a> e acconsento a essere ricontattato per questa richiesta. <span class="req">*</span></span></label>' +
+        '<label class="consent"><input type="checkbox" id="f-mkt"' + (c.marketing ? " checked" : "") + '><span>Voglio ricevere anche novità, guide e offerte di GianluContent (facoltativo).</span></label>' +
+        '<p class="q-err" id="err-contatto" role="alert"></p></div>';
+    }
+    var reqMark = q.req ? ' <span class="req" aria-hidden="true">*</span>' : ' <span class="hint" style="font-family:var(--f-body);font-weight:400">(facoltativo)</span>';
+    var html = "";
+    if (q.type === "single" || q.type === "multi") {
+      var opts = optionsFor(q);
+      var cur = state.a[q.id];
+      var t = q.type === "single" ? "radio" : "checkbox";
+      html += '<fieldset class="q" data-q="' + q.id + '"><legend>' + esc(q.q) + reqMark + "</legend>";
+      if (q.hint) html += '<p class="hint">' + esc(q.hint) + "</p>";
+      html += '<div class="opts' + (opts.length <= 3 || q.dynamicFrom ? " one" : "") + '">';
+      opts.forEach(function (o, j) {
+        var on = q.type === "single" ? cur === o.l : [].concat(cur || []).indexOf(o.l) > -1;
+        html += '<label class="opt"><input type="' + t + '" name="' + id + '" value="' + esc(o.l) + '"' + (on ? " checked" : "") + "><span>" + esc(o.l) + (o.h ? "<small>" + esc(o.h) + "</small>" : "") + "</span></label>";
+      });
+      if (q.other) {
+        var otherVal = state.a[q.id + "_altro"] || "";
+        html += '<label class="opt"><input type="' + t + '" name="' + id + '" value="__altro"' + (otherVal ? " checked" : "") + '><span>Altro<small>Specifica qui sotto</small></span></label>';
+      }
+      html += "</div>";
+      if (q.other) html += '<input class="other-input" type="text" id="' + id + '-altro" placeholder="Altro: scrivi qui" value="' + esc(state.a[q.id + "_altro"] || "") + '"' + (state.a[q.id + "_altro"] ? "" : " hidden") + ">";
+      html += '<p class="q-err" id="err-' + q.id + '" role="alert"></p></fieldset>';
+    } else {
+      html += '<div class="q field" data-q="' + q.id + '"><label class="ql" for="' + id + '" style="font-family:var(--f-display);font-weight:760;font-size:clamp(20px,2vw,23px);letter-spacing:-0.01em;text-transform:none;color:var(--warm-white)">' + esc(q.q) + reqMark + "</label>";
+      if (q.type === "text") html += '<input type="text" id="' + id + '" placeholder="' + esc(q.ph || "") + '" value="' + esc(state.a[q.id] || "") + '">';
+      else html += '<textarea id="' + id + '" placeholder="' + esc(q.ph || "") + '">' + esc(state.a[q.id] || "") + "</textarea>";
+      html += '<p class="q-err" id="err-' + q.id + '" role="alert"></p></div>';
+    }
+    return html;
+  }
+  function field(k, label, type, val, ac) {
+    return '<div class="field"><label for="f-' + k + '">' + label + (k === "nome" || k === "email" ? ' <span class="req">*</span>' : "") + '</label><input type="' + type + '" id="f-' + k + '" autocomplete="' + ac + '" value="' + esc(val || "") + '"></div>';
+  }
+
+  function render() {
+    var vis = visibleSections();
+    if (state.i >= vis.length) state.i = vis.length - 1;
+    var s = vis[state.i];
+    var html = '<div class="sec-head"><small>Sezione ' + (state.i + 1) + " di " + vis.length + "</small><h2 id=\"sec-title\">" + esc(s.title) + "</h2><p>" + esc(s.intro) + "</p></div>";
+    visibleQuestions(s).forEach(function (q) { html += renderQuestion(q); });
+    body.innerHTML = html;
+    btnBack.hidden = state.i === 0;
+    btnNext.innerHTML = state.i === vis.length - 1 ? 'Invia il brief <span aria-hidden="true">→</span>' : 'Avanti <span aria-hidden="true">→</span>';
+    renderToc();
+    bindLive();
+  }
+
+  // Aggiorna al volo: "Altro", domande condizionate nella stessa sezione, opzioni dinamiche
+  function bindLive() {
+    body.querySelectorAll('input[value="__altro"]').forEach(function (inp) {
+      var box = document.getElementById(inp.name + "-altro");
+      body.querySelectorAll('input[name="' + inp.name + '"]').forEach(function (x) {
+        x.addEventListener("change", function () { box.hidden = !inp.checked; if (inp.checked) box.focus(); });
+      });
+    });
+  }
+  function currentSection() { return visibleSections()[state.i]; }
+  // Un solo ascoltatore per tutto il modulo, sempre riferito alla sezione corrente
+  body.addEventListener("change", function (e) {
+    var qid = e.target.name ? e.target.name.replace(/^q-/, "") : null;
+    if (!qid) { persistSoon(); return; }
+    var s = currentSection();
+    var before = visibleQuestions(s).map(function (q) { return q.id; }).join();
+    collectSection(s, false);
+    var after = visibleQuestions(s).map(function (q) { return q.id; }).join();
+    var dynamic = s.questions.some(function (q) { return q.dynamicFrom === qid; });
+    persist();
+    if (dynamic || before !== after) { var y = window.scrollY; render(); window.scrollTo(0, y); }
+    else renderToc();
+  });
+  var persistTimer;
+  function persistSoon() { clearTimeout(persistTimer); persistTimer = setTimeout(function () { collectSection(currentSection(), false); persist(); }, 400); }
+  body.addEventListener("input", function (e) { if (e.target.matches("input[type=text], input[type=email], input[type=tel], textarea")) persistSoon(); });
+
+  function collectSection(s, validate) {
+    var ok = true, firstBad = null;
+    visibleQuestions(s).forEach(function (q) {
+      var box = body.querySelector('[data-q="' + q.id + '"]');
+      if (!box) return;
+      var err = document.getElementById("err-" + q.id) || document.getElementById("err-contatto");
+      var bad = "";
+      if (q.type === "single" || q.type === "multi") {
+        var checked = Array.prototype.map.call(box.querySelectorAll("input:checked"), function (x) { return x.value; });
+        var altro = (document.getElementById("q-" + q.id + "-altro") || {}).value || "";
+        var vals = checked.filter(function (v) { return v !== "__altro"; });
+        if (checked.indexOf("__altro") > -1) { state.a[q.id + "_altro"] = altro.trim(); if (altro.trim()) vals.push("Altro: " + altro.trim()); else if (validate) bad = "Scrivi cosa intendi con \"Altro\"."; }
+        else delete state.a[q.id + "_altro"];
+        if (q.type === "single") state.a[q.id] = vals[0] || (checked.indexOf("__altro") > -1 && altro.trim() ? "Altro: " + altro.trim() : undefined);
+        else state.a[q.id] = vals;
+        if (q.type === "single" && checked.indexOf("__altro") > -1 && altro.trim()) state.a[q.id] = "Altro: " + altro.trim();
+        if (validate && q.req && !checked.length) bad = q.type === "single" ? "Scegli una risposta." : "Scegli almeno una risposta.";
+      } else if (q.type === "text" || q.type === "textarea") {
+        state.a[q.id] = document.getElementById("q-" + q.id).value.trim();
+        if (validate && q.req && !state.a[q.id]) bad = "Scrivi una risposta breve.";
+      } else if (q.type === "contact") {
+        var c = state.contact;
+        ["nome", "cognome", "email", "telefono", "note"].forEach(function (k) { c[k] = document.getElementById("f-" + k).value.trim(); });
+        c.privacy = document.getElementById("f-privacy").checked;
+        c.marketing = document.getElementById("f-mkt").checked;
+        if (validate) {
+          if (!c.nome) bad = "Inserisci il tuo nome.";
+          else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) bad = "Controlla l'email: sembra incompleta.";
+          else if (!c.privacy) bad = "Per ricontattarti ci serve il consenso alla privacy policy.";
+        }
+      }
+      if (validate) {
+        box.classList.toggle("invalid", !!bad);
+        if (err) err.textContent = bad;
+        if (bad) { ok = false; if (!firstBad) firstBad = box; }
+      }
+    });
+    // Pulisce le risposte a domande non più visibili (es. cambiato "chi richiede")
+    if (firstBad) firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+    return ok;
+  }
+
+  function cleanHidden() {
+    SECTIONS.forEach(function (s) {
+      var secVisible = !s.when || s.when(state.a);
+      s.questions.forEach(function (q) {
+        if (q.type === "contact") return;
+        if (!secVisible || (q.when && !q.when(state.a))) { delete state.a[q.id]; delete state.a[q.id + "_altro"]; }
+      });
+    });
+  }
+
+  /* ---------- Invio ---------- */
+  function val(id) { var v = state.a[id]; return Array.isArray(v) ? v.join(", ") : (v || ""); }
+  function sectionText(s) {
+    return visibleQuestions(s).filter(function (q) { return q.type !== "contact" && val(q.id); })
+      .map(function (q) { return q.q.replace(/\?$/, "") + ": " + val(q.id); }).join("  |  ");
+  }
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function slug(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40); }
+
+  function submit() {
+    cleanHidden();
+    var vis = visibleSections();
+    var c = state.contact;
+    var tags = ["sito-survey", "brief-formazione"];
+    if (state.a.richiedente) tags.push("richiedente-" + slug(state.a.richiedente));
+    if (state.a.partecipanti) tags.push("partecipanti-" + slug(state.a.partecipanti));
+    if (state.a.livello) tags.push("livello-" + slug(state.a.livello));
+    if (state.a.budget) tags.push("budget-" + slug(state.a.budget));
+    if (state.a.inizio) tags.push("inizio-" + slug(state.a.inizio));
+    if (has(state.a, "scopi", SCOPI.agent)) tags.push("scopo-agenti-ai");
+    if (has(state.a, "scopi", SCOPI.automaContenuti)) tags.push("scopo-automazione-contenuti");
+    if (c.marketing) tags.push("newsletter-si");
+
+    var data = new URLSearchParams();
+    var add = function (k, v) { data.append(k, v == null ? "" : String(v)); };
+    add("first_name", c.nome); add("last_name", c.cognome); add("email", c.email); add("phone", c.telefono);
+    add("company_name", state.a.azienda || ""); add("note", c.note);
+    add("consenso_privacy", c.privacy ? "si" : "no"); add("consenso_marketing", c.marketing ? "si" : "no");
+    add("survey", "brief-formazione"); add("servizio_consigliato", "formazione");
+    add("tags", tags.join(","));
+    // Scheda brief: un campo per sezione, da mettere su righe separate nella nota o nell'email GHL
+    vis.forEach(function (s) { if (s.id !== "contatti") add("brief_" + s.id, sectionText(s)); });
+    add("riepilogo_risposte", vis.filter(function (s) { return s.id !== "contatti"; }).map(function (s) { return s.title.toUpperCase() + " → " + sectionText(s); }).join("  ||  "));
+    // Versione per l'email: una domanda per riga, sezioni in grassetto (da usare nel corpo dell'email GHL)
+    add("riepilogo_html", vis.filter(function (s) { return s.id !== "contatti"; }).map(function (s) {
+      var rows = visibleQuestions(s).filter(function (q) { return q.type !== "contact" && val(q.id); })
+        .map(function (q) { return esc(q.q.replace(/\?$/, "")) + ": <b>" + esc(val(q.id)) + "</b>"; });
+      return rows.length ? "<p style=\"margin:0 0 16px\"><b style=\"color:#7433D6\">" + esc(s.title.toUpperCase()) + "</b><br>" + rows.join("<br>") + "</p>" : "";
+    }).join(""));
+    Object.keys(state.a).forEach(function (k) { if (!/_altro$/.test(k)) add("risposta_" + k, val(k)); });
+    add("pagina", location.href); add("inviato_il", new Date().toISOString());
+
+    if (CONFIG.ghlWebhookUrl) {
+      try { fetch(CONFIG.ghlWebhookUrl, { method: "POST", mode: "no-cors", body: data }).catch(function () {}); } catch (e) {}
+    }
+    try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+    renderDone();
+  }
+
+  function renderDone() {
+    document.getElementById("navRow").hidden = true;
+    body.innerHTML = '<div class="done-card" style="display:grid;gap:22px">' +
+      '<div class="sec-head"><small>Brief inviato</small><p class="big" id="sec-title">Grazie, ' + esc(state.contact.nome) + ".</p>" +
+      "<p>Ho tutto quello che mi serve per preparare la tua proposta. Ecco cosa succede adesso.</p></div>" +
+      '<ol class="next-steps">' +
+      "<li><span><b>Leggo il brief</b>Analizzo obiettivi, livello e vincoli che mi hai indicato.</span></li>" +
+      "<li><span><b>Preparo la proposta</b>Programma, formato, durata e prezzo costruiti sulle tue risposte.</span></li>" +
+      "<li><span><b>Ricevi la proposta</b>Te la mando via email nei prossimi giorni lavorativi. Se qualcosa non torna, ne parliamo prima di partire.</span></li></ol>" +
+      '<div style="display:flex;flex-wrap:wrap;gap:12px">' +
+      '<a class="btn btn--ghost" href="' + esc(CONFIG.link.home) + '">Torna al sito</a></div></div>';
+    toc.querySelectorAll("li").forEach(function (li) { if (!li.classList.contains("skip")) { li.className = "done"; } });
+    var t = document.getElementById("sec-title"); if (t) { t.tabIndex = -1; t.focus(); }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var vis = visibleSections();
+    if (!collectSection(vis[state.i], true)) return;
+    if (state.i === visibleSections().length - 1) { submit(); return; }
+    state.i += 1; persist(); render();
+    var top = document.querySelector(".brief"); if (top) top.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  btnBack.addEventListener("click", function () {
+    collectSection(visibleSections()[state.i], false); persist();
+    if (state.i > 0) { state.i -= 1; persist(); render(); document.querySelector(".brief").scrollIntoView({ behavior: "smooth", block: "start" }); }
+  });
+
+  render();
+})();
+</script>
