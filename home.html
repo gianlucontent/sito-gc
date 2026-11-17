@@ -253,6 +253,8 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
 .hero-photo { position: relative; display: flex; min-width: 0; }
 .hero-photo .photo { flex: 1; aspect-ratio: auto; min-height: 460px; height: 100%; }
 .hero-photo .photo img { object-position: 50% 30%; }
+.hero-photo .photo--cut { background: radial-gradient(70% 40% at 50% 26%, rgba(196,161,255,.42), rgba(116,51,214,.18) 55%, rgba(116,51,214,0) 75%), linear-gradient(180deg, #21152F 0%, #100B18 100%); border: 1px solid rgba(250,247,255,.08); }
+.hero-photo .photo--cut img { object-fit: cover; object-position: 50% 100%; }
 @media (max-width: 560px) { .glass-chip { left: 12px; } }
 
 /* ---------- Immagini ---------- */
@@ -692,7 +694,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
       </div>
       <div class="hero-photo">
         <!-- FOTO 01 · ritratto hero (4:5). Su GHL: sostituisci src con l'URL della Media Library -->
-        <div class="photo photo--img" data-photo="hero"><picture><source srcset="img/hero.avif" type="image/avif"><img src="img/hero.webp" alt="Gianluca Giannini nel suo studio di contenuti AI" width="900" height="1125" fetchpriority="high"></picture></div>
+        <div class="photo photo--img photo--cut" data-photo="hero"><picture><source srcset="img/hero-cut.avif" type="image/avif"><img src="img/hero-cut.webp" alt="Gianluca Giannini, fondatore di GianluContent" width="900" height="1125" fetchpriority="high"></picture></div>
       </div>
     </div>
     <div class="proof-strip" aria-label="GianluContent in numeri">
