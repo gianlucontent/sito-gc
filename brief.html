@@ -204,6 +204,7 @@ a { color: inherit; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--warm-white); text-decoration: underline; }
 .done-note { margin: 0; align-self: center; font-weight: 600; color: var(--c-ink, #100B18); }
+.hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
 
 /* GHL: il sito esce dal contenitore centrato e occupa tutta la larghezza dello schermo */
 .gc-site {
@@ -413,6 +414,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
 
   /* ---------- Stato ---------- */
   var state = { i: 0, a: {}, contact: {} };
+  var T0 = Date.now(); // anti-spam: tempo di compilazione
   try { var saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (saved && saved.a) state = saved; } catch (e) {}
   // Precompilazione dai parametri dell'URL (es. dal sito: ?nome=&email=&azienda=)
   try {
@@ -458,6 +460,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
       return '<div class="q" data-q="contatto"><div class="fields-2">' +
         field("nome", "Nome", "text", c.nome, "given-name") + field("cognome", "Cognome", "text", c.cognome, "family-name") + "</div>" +
         '<div class="fields-2">' + field("email", "Email", "email", c.email, "email") + field("telefono", "Telefono", "tel", c.telefono, "tel") + "</div>" +
+        '<div class="hp" aria-hidden="true"><label>Lascia vuoto <input type="text" id="f-hp" tabindex="-1" autocomplete="off"></label></div>' +
         '<div class="field"><label for="f-note">Vuoi aggiungere qualcosa? (facoltativo)</label><textarea id="f-note">' + esc(c.note) + "</textarea></div>" +
         '<label class="consent"><input type="checkbox" id="f-privacy"' + (c.privacy ? " checked" : "") + '><span>Ho letto la <a href="' + esc(CONFIG.link.privacy) + '" target="_blank" rel="noopener">privacy policy</a> e acconsento a essere ricontattato per questa richiesta. <span class="req">*</span></span></label>' +
         '<label class="consent"><input type="checkbox" id="f-mkt"' + (c.marketing ? " checked" : "") + '><span>Voglio ricevere anche novità, guide e offerte di GianluContent (facoltativo).</span></label>' +
@@ -558,6 +561,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
       } else if (q.type === "contact") {
         var c = state.contact;
         ["nome", "cognome", "email", "telefono", "note"].forEach(function (k) { c[k] = document.getElementById("f-" + k).value.trim(); });
+        c.hp = (document.getElementById("f-hp") || {}).value || "";
         c.privacy = document.getElementById("f-privacy").checked;
         c.marketing = document.getElementById("f-mkt").checked;
         if (validate) {
@@ -629,7 +633,8 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
     Object.keys(state.a).forEach(function (k) { if (!/_altro$/.test(k)) add("risposta_" + k, val(k)); });
     add("pagina", location.href); add("inviato_il", new Date().toISOString());
 
-    if (CONFIG.ghlWebhookUrl) {
+    var isBot = !!c.hp || Date.now() - T0 < 8000; // campo trappola o invio troppo rapido
+    if (CONFIG.ghlWebhookUrl && !isBot) {
       try { fetch(CONFIG.ghlWebhookUrl, { method: "POST", mode: "no-cors", body: data }).catch(function () {}); } catch (e) {}
     }
     try { localStorage.removeItem(STORE_KEY); } catch (e) {}

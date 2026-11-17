@@ -616,6 +616,7 @@ details p { padding: 0 0 22px; color: var(--muted); max-width: 62ch; }
 .result pre { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); background: rgba(16,11,24,.6); border: 1px dashed var(--line-dark); border-radius: var(--r-ctrl); padding: 12px; overflow-x: auto; max-height: 180px; }
 .result summary { font-size: 14px; padding: 8px 0; font-family: var(--f-body); font-weight: 500; color: var(--muted); }
 .result summary::after { top: 2px; font-size: 20px; }
+.hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
 
 /* GHL: il sito esce dal contenitore centrato e occupa tutta la larghezza dello schermo */
 .gc-site {
@@ -1316,7 +1317,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
 
   function openSurvey(key) {
     var sv = SURVEYS[key] || SURVEYS.generale;
-    state = { key: key, sv: sv, steps: sv.steps.concat([CONTACT_STEP]), i: 0, answers: {}, contact: {} };
+    state = { key: key, sv: sv, steps: sv.steps.concat([CONTACT_STEP]), i: 0, answers: {}, contact: {}, t0: Date.now() };
     document.getElementById("sv-kicker").textContent = sv.kicker;
     render();
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
@@ -1358,6 +1359,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
         '<div class="fields-2"><div class="field"><label for="sv-email">Email</label><input id="sv-email" type="email" autocomplete="email" value="' + esc(c.email || "") + '"></div>' +
         '<div class="field"><label for="sv-tel">Telefono</label><input id="sv-tel" type="tel" autocomplete="tel" value="' + esc(c.telefono || "") + '"></div></div>' +
         '<div class="field"><label for="sv-link">Sito o profilo social (facoltativo)</label><input id="sv-link" type="text" placeholder="instagram.com/..." value="' + esc(c.link || "") + '"></div>' +
+        '<div class="hp" aria-hidden="true"><label>Lascia vuoto <input type="text" id="sv-hp" tabindex="-1" autocomplete="off"></label></div>' +
         '<div class="field"><label for="sv-note">Vuoi aggiungere qualcosa? (facoltativo)</label><textarea id="sv-note">' + esc(c.note || "") + "</textarea></div>" +
         '<label class="consent"><input type="checkbox" id="sv-privacy"' + (c.privacy ? " checked" : "") + '><span>Ho letto la <a href="' + esc(CONFIG.link.privacy || "#") + '" target="_blank" rel="noopener">privacy policy</a> e acconsento a essere ricontattato per questa richiesta.</span></label>' +
         '<label class="consent"><input type="checkbox" id="sv-mkt"' + (c.marketing ? " checked" : "") + '><span>Voglio ricevere anche novità, guide e offerte di GianluContent (facoltativo).</span></label>';
@@ -1392,6 +1394,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
         email: document.getElementById("sv-email").value.trim(),
         telefono: document.getElementById("sv-tel").value.trim(),
         link: document.getElementById("sv-link").value.trim(),
+        hp: (document.getElementById("sv-hp") || {}).value || "",
         note: document.getElementById("sv-note").value.trim(),
         privacy: document.getElementById("sv-privacy").checked,
         marketing: document.getElementById("sv-mkt").checked
@@ -1434,6 +1437,8 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
   // In GHL ogni campo arriva separato: first_name, email, risposta_<domanda>, tags...
   function send(payload) {
     if (!CONFIG.ghlWebhookUrl) return;
+    // Anti-spam: campo trappola compilato o invio troppo rapido = bot, non si invia nulla
+    if (state.contact.hp || Date.now() - (state.t0 || 0) < 4000) return;
     var data = new URLSearchParams();
     Object.keys(payload).forEach(function (k) {
       var v = payload[k];
@@ -1514,9 +1519,9 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
      GHL · MOVIMENTO (GSAP 3.13 + ScrollTrigger + SplitText)
      Effetti ispirati a React Bits (SplitText, CountUp, Magnet), riscritti in JavaScript semplice.
      ===================================================================== -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" integrity="sha384-xb96EMJeax+NLXMC88ZBa1xAeAW+kn+horHh/zFlbMLG2UPWhMJJSlv7fi57hS+Q" crossorigin="anonymous"></script>
 <script>
 (function () {
   var root = document.documentElement;
