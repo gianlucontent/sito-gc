@@ -528,6 +528,10 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--f-display); text-wrap: balance; }
 .testi .stars, .testi-head .stars { color: #FBBC04; letter-spacing: 2px; font-size: 18px; line-height: 1; }
 .testi-head { margin-top: 56px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
 .testi-head h3 { font-family: var(--f-display); font-weight: 860; font-size: clamp(28px, 3.4vw, 40px); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; }
+.hero-rating { margin-top: 14px; display: inline-flex; gap: 8px; align-items: center; font-size: 15px; color: var(--muted); text-decoration: none; }
+.hero-rating .stars { color: #FBBC04; letter-spacing: 2px; }
+.hero-rating b { color: var(--warm-white); }
+.hero-rating:hover { color: var(--warm-white); }
 .testi-head p { color: var(--ink-soft); font-size: 15px; display: flex; gap: 10px; align-items: center; }
 .testi blockquote::before { content: "“"; display: block; font-family: var(--f-accent); font-size: 56px; line-height: 0.6; color: var(--orange); margin-bottom: 8px; }
 .testi figcaption { display: flex; gap: 12px; align-items: center; font-size: 14px; color: var(--muted); }
@@ -684,6 +688,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
           <a class="btn btn--ghost" href="#servizi">Guarda i servizi</a>
         </div>
         <p class="hero-note">Quattro domande, due minuti. Alla fine scegli tu se fissare la call.</p>
+        <a class="hero-rating" href="#risultati"><span class="stars" aria-hidden="true">★★★★★</span><b>5,0</b> su Google · 44 recensioni</a>
       </div>
       <div class="hero-photo">
         <!-- FOTO 01 · ritratto hero (4:5). Su GHL: sostituisci src con l'URL della Media Library -->
@@ -1171,7 +1176,7 @@ body { background: var(--ink) !important; overflow-x: clip !important; overflow-
       var stars = t.stelle ? '<span class="stars" role="img" aria-label="' + t.stelle + ' stelle su 5">' + "★★★★★".slice(0, t.stelle) + "</span>" : "";
       return '<figure class="testi">' + stars + "<blockquote>" + e(t.testo) + "</blockquote><figcaption>" + face + "<span><b>" + e(t.nome) + "</b>" + e(t.ruolo) + (t.fonte ? " · Recensione su " + e(t.fonte) : "") + "</span></figcaption></figure>";
     }).join("");
-    box.insertAdjacentHTML("beforebegin", '<div class="testi-head"><h3>Cosa dicono gli studenti</h3><p><span class="stars" aria-hidden="true">★★★★★</span> Recensioni reali dalla scheda Google di GianluContent</p></div>');
+    box.insertAdjacentHTML("beforebegin", '<div class="testi-head"><h3>Cosa dicono gli studenti</h3><p><span class="stars" aria-hidden="true">★★★★★</span> <b>5,0</b> su Google · 44 recensioni reali</p></div>');
     if (CONFIG.link.recensioni) box.insertAdjacentHTML("afterend", '<div class="cta-row" style="justify-content:center;margin-top:20px"><a class="btn btn--ghost" href="' + e(CONFIG.link.recensioni) + '" target="_blank" rel="noopener">Leggi tutte le recensioni su Google <span class="arrow">→</span></a></div>');
     box.hidden = false;
   })();
